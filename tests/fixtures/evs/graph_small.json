@@ -1,0 +1,501 @@
+{
+  "_note": "Hand-authored synthetic NCIt-shaped graph for traversal/subtree/find_concepts tests. Served by tests/conftest.py for GET /concept/{tv}?list=...&include=<itemised flags>. Not a live recording.",
+  "concepts": {
+    "C3224": {
+      "code": "C3224",
+      "name": "Melanoma",
+      "leaf": false,
+      "active": true,
+      "conceptStatus": "DEFAULT",
+      "properties": [
+        {
+          "type": "Semantic_Type",
+          "value": "Neoplastic Process"
+        },
+        {
+          "type": "Neoplastic_Status",
+          "value": "Malignant"
+        }
+      ],
+      "parents": [
+        {
+          "code": "C7058",
+          "name": "Melanocytic Neoplasm",
+          "leaf": false
+        },
+        {
+          "code": "C9305",
+          "name": "Malignant Neoplasm",
+          "leaf": false
+        }
+      ],
+      "children": [
+        {
+          "code": "C3510",
+          "name": "Cutaneous Melanoma",
+          "leaf": false
+        },
+        {
+          "code": "C7712",
+          "name": "Uveal Melanoma",
+          "leaf": false
+        },
+        {
+          "code": "C4236",
+          "name": "Childhood Melanoma",
+          "leaf": true
+        }
+      ],
+      "roles": [
+        {
+          "type": "Disease_Has_Abnormal_Cell",
+          "relatedCode": "C36859",
+          "relatedName": "Neoplastic Melanocyte"
+        },
+        {
+          "type": "Disease_Has_Normal_Cell_Origin",
+          "relatedCode": "C12612",
+          "relatedName": "Melanocyte"
+        },
+        {
+          "type": "Disease_Excludes_Finding",
+          "relatedCode": "C36122",
+          "relatedName": "Intraepithelial Neoplasia"
+        }
+      ],
+      "inverseRoles": [
+        {
+          "type": "Gene_Product_Malfunction_Associated_With_Disease",
+          "relatedCode": "C17356",
+          "relatedName": "BRAF Protein"
+        }
+      ],
+      "associations": [
+        {
+          "type": "Concept_In_Subset",
+          "relatedCode": "C177537",
+          "relatedName": "GDC Terminology",
+          "qualifiers": [
+            {
+              "type": "Source",
+              "value": "GDC"
+            }
+          ]
+        }
+      ],
+      "inverseAssociations": []
+    },
+    "C3510": {
+      "code": "C3510",
+      "name": "Cutaneous Melanoma",
+      "leaf": false,
+      "active": true,
+      "conceptStatus": "DEFAULT",
+      "properties": [
+        {
+          "type": "Semantic_Type",
+          "value": "Neoplastic Process"
+        },
+        {
+          "type": "Neoplastic_Status",
+          "value": "Malignant"
+        }
+      ],
+      "parents": [
+        {
+          "code": "C3224",
+          "name": "Melanoma",
+          "leaf": false
+        }
+      ],
+      "children": [
+        {
+          "code": "C8410",
+          "name": "Breast Melanoma",
+          "leaf": true
+        },
+        {
+          "code": "C4022",
+          "name": "Skin Melanoma Stage II",
+          "leaf": true
+        }
+      ],
+      "roles": [
+        {
+          "type": "Disease_Has_Primary_Anatomic_Site",
+          "relatedCode": "C12470",
+          "relatedName": "Skin"
+        }
+      ],
+      "inverseRoles": [],
+      "associations": [],
+      "inverseAssociations": []
+    },
+    "C7712": {
+      "code": "C7712",
+      "name": "Uveal Melanoma",
+      "leaf": false,
+      "active": true,
+      "conceptStatus": "DEFAULT",
+      "properties": [
+        {
+          "type": "Semantic_Type",
+          "value": "Neoplastic Process"
+        },
+        {
+          "type": "Neoplastic_Status",
+          "value": "Malignant"
+        }
+      ],
+      "parents": [
+        {
+          "code": "C3224",
+          "name": "Melanoma",
+          "leaf": false
+        }
+      ],
+      "children": [
+        {
+          "code": "C7713",
+          "name": "Choroid Melanoma",
+          "leaf": true
+        }
+      ],
+      "roles": [
+        {
+          "type": "Disease_Has_Primary_Anatomic_Site",
+          "relatedCode": "C12775",
+          "relatedName": "Uvea"
+        }
+      ],
+      "inverseRoles": [],
+      "associations": [],
+      "inverseAssociations": []
+    },
+    "C4236": {
+      "code": "C4236",
+      "name": "Childhood Melanoma",
+      "leaf": true,
+      "active": true,
+      "conceptStatus": "DEFAULT",
+      "properties": [
+        {
+          "type": "Semantic_Type",
+          "value": "Neoplastic Process"
+        }
+      ],
+      "parents": [
+        {
+          "code": "C3224",
+          "name": "Melanoma"
+        }
+      ],
+      "children": [],
+      "roles": [],
+      "inverseRoles": [],
+      "associations": [],
+      "inverseAssociations": []
+    },
+    "C8410": {
+      "code": "C8410",
+      "name": "Breast Melanoma",
+      "leaf": true,
+      "active": true,
+      "conceptStatus": "DEFAULT",
+      "properties": [
+        {
+          "type": "Semantic_Type",
+          "value": "Neoplastic Process"
+        },
+        {
+          "type": "Neoplastic_Status",
+          "value": "Malignant"
+        }
+      ],
+      "parents": [],
+      "children": [],
+      "roles": [],
+      "inverseRoles": [],
+      "associations": [],
+      "inverseAssociations": []
+    },
+    "C4022": {
+      "code": "C4022",
+      "name": "Skin Melanoma Stage II",
+      "leaf": true,
+      "active": false,
+      "conceptStatus": "Retired_Concept",
+      "properties": [
+        {
+          "type": "Semantic_Type",
+          "value": "Neoplastic Process"
+        }
+      ],
+      "parents": [],
+      "children": [],
+      "roles": [],
+      "inverseRoles": [],
+      "associations": [],
+      "inverseAssociations": []
+    },
+    "C7713": {
+      "code": "C7713",
+      "name": "Choroid Melanoma",
+      "leaf": true,
+      "active": true,
+      "conceptStatus": "DEFAULT",
+      "properties": [
+        {
+          "type": "Semantic_Type",
+          "value": "Neoplastic Process"
+        },
+        {
+          "type": "Neoplastic_Status",
+          "value": "Malignant"
+        }
+      ],
+      "parents": [],
+      "children": [],
+      "roles": [],
+      "inverseRoles": [],
+      "associations": [],
+      "inverseAssociations": []
+    },
+    "C36859": {
+      "code": "C36859",
+      "name": "Neoplastic Melanocyte",
+      "leaf": true,
+      "active": true,
+      "properties": [
+        {
+          "type": "Semantic_Type",
+          "value": "Cell"
+        }
+      ],
+      "parents": [],
+      "children": [],
+      "roles": [],
+      "inverseRoles": [],
+      "associations": [],
+      "inverseAssociations": []
+    },
+    "C12612": {
+      "code": "C12612",
+      "name": "Melanocyte",
+      "leaf": true,
+      "active": true,
+      "properties": [
+        {
+          "type": "Semantic_Type",
+          "value": "Cell"
+        }
+      ],
+      "parents": [],
+      "children": [],
+      "roles": [],
+      "inverseRoles": [],
+      "associations": [],
+      "inverseAssociations": []
+    },
+    "C36122": {
+      "code": "C36122",
+      "name": "Intraepithelial Neoplasia",
+      "leaf": false,
+      "active": true,
+      "properties": [
+        {
+          "type": "Semantic_Type",
+          "value": "Neoplastic Process"
+        }
+      ],
+      "parents": [],
+      "children": [
+        {
+          "code": "C99901",
+          "name": "Should Not Be Reached",
+          "leaf": true
+        }
+      ],
+      "roles": [],
+      "inverseRoles": [],
+      "associations": [],
+      "inverseAssociations": []
+    },
+    "C12470": {
+      "code": "C12470",
+      "name": "Skin",
+      "leaf": false,
+      "active": true,
+      "properties": [
+        {
+          "type": "Semantic_Type",
+          "value": "Body Part, Organ, or Organ Component"
+        }
+      ],
+      "parents": [],
+      "children": [],
+      "roles": [],
+      "inverseRoles": [],
+      "associations": [],
+      "inverseAssociations": []
+    },
+    "C12775": {
+      "code": "C12775",
+      "name": "Uvea",
+      "leaf": false,
+      "active": true,
+      "properties": [],
+      "parents": [],
+      "children": [],
+      "roles": [],
+      "inverseRoles": [],
+      "associations": [],
+      "inverseAssociations": []
+    },
+    "C7058": {
+      "code": "C7058",
+      "name": "Melanocytic Neoplasm",
+      "leaf": false,
+      "active": true,
+      "properties": [],
+      "parents": [],
+      "children": [],
+      "roles": [],
+      "inverseRoles": [],
+      "associations": [],
+      "inverseAssociations": []
+    },
+    "C9305": {
+      "code": "C9305",
+      "name": "Malignant Neoplasm",
+      "leaf": false,
+      "active": true,
+      "properties": [],
+      "parents": [],
+      "children": [],
+      "roles": [],
+      "inverseRoles": [],
+      "associations": [],
+      "inverseAssociations": []
+    },
+    "C17356": {
+      "code": "C17356",
+      "name": "BRAF Protein",
+      "leaf": true,
+      "active": true,
+      "properties": [],
+      "parents": [],
+      "children": [],
+      "roles": [],
+      "inverseRoles": [],
+      "associations": [],
+      "inverseAssociations": []
+    }
+  },
+  "inverseRoles": {
+    "C12470": [
+      {
+        "type": "Disease_Has_Primary_Anatomic_Site",
+        "relatedCode": "C3510",
+        "relatedName": "Cutaneous Melanoma"
+      },
+      {
+        "type": "Disease_Has_Primary_Anatomic_Site",
+        "relatedCode": "C4017",
+        "relatedName": "Skin Basal Cell Carcinoma"
+      },
+      {
+        "type": "Disease_Has_Metastatic_Anatomic_Site",
+        "relatedCode": "C9999",
+        "relatedName": "Metastatic Something"
+      }
+    ]
+  },
+  "inverseAssociations": {
+    "C177537": [
+      {
+        "type": "Concept_In_Subset",
+        "relatedCode": "C3224",
+        "relatedName": "Melanoma"
+      },
+      {
+        "type": "Concept_In_Subset",
+        "relatedCode": "C2926",
+        "relatedName": "Lung Non-Small Cell Carcinoma"
+      }
+    ]
+  },
+  "associationsByType": {
+    "Has_Data_Element": {
+      "total": 3,
+      "associations": [
+        {
+          "code": "C3224",
+          "name": "Melanoma",
+          "type": "Has_Data_Element",
+          "relatedCode": "C176895",
+          "relatedName": "Melanoma Diagnosis DE"
+        },
+        {
+          "code": "C2926",
+          "name": "Lung Non-Small Cell Carcinoma",
+          "type": "Has_Data_Element",
+          "relatedCode": "C176896",
+          "relatedName": "NSCLC DE"
+        },
+        {
+          "code": "C3510",
+          "name": "Cutaneous Melanoma",
+          "type": "Has_Data_Element",
+          "relatedCode": "C176897",
+          "relatedName": "Cutaneous DE"
+        }
+      ]
+    }
+  },
+  "searchByProperty": {
+    "Neoplastic_Status=Malignant": {
+      "total": 5,
+      "concepts": [
+        {
+          "code": "C3224",
+          "name": "Melanoma"
+        },
+        {
+          "code": "C3510",
+          "name": "Cutaneous Melanoma"
+        },
+        {
+          "code": "C7712",
+          "name": "Uveal Melanoma"
+        },
+        {
+          "code": "C8410",
+          "name": "Breast Melanoma"
+        },
+        {
+          "code": "C7713",
+          "name": "Choroid Melanoma"
+        }
+      ]
+    },
+    "ICD-O-3_Code=8720/3": {
+      "total": 1,
+      "concepts": [
+        {
+          "code": "C3224",
+          "name": "Melanoma"
+        }
+      ]
+    },
+    "ICD-O-3_Code=8140/3": {
+      "total": 1,
+      "concepts": [
+        {
+          "code": "C2852",
+          "name": "Adenocarcinoma"
+        }
+      ]
+    }
+  }
+}

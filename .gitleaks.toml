@@ -1,0 +1,48 @@
+# gitleaks configuration (https://github.com/gitleaks/gitleaks), used by the pre-commit hook
+# (.pre-commit-config.yaml), the CI scan (.github/workflows/secret-scan.yml) and local runs:
+#
+#   gitleaks dir . --redact       # working tree, including untracked files
+#   gitleaks git . --redact       # full git history
+#
+# A false positive on a deliberate test value can be silenced with a trailing
+# `# gitleaks:allow` comment on that line. Never allowlist a real credential: rotate it.
+
+title = "evs-cadsr-mcp secret scan"
+
+[extend]
+useDefault = true
+
+# This server's own credential settings, which the default rules do not know. A filled-in
+# value in any file (a copied .env, compose file, script, doc) is a leak; placeholders such
+# as `user:password`, `${VAR}`, `<password>` and empty values are not.
+[[rules]]
+id = "evs-cadsr-mcp-credential-setting"
+description = "Credential value assigned to an ECM_* secret setting"
+regex = '''(?i)\bECM_(?:CADSR_PASSWORD|CADSR_CREDENTIAL|LICENSE_KEY|AUTH_PUBLIC_KEY|ADMIN_TOKEN|REDIS_PASSWORD)\b["']?[ \t]*[:=][ \t]*["']?([^\s"'`#$<{][^\s"'`]*)'''
+secretGroup = 1
+keywords = ["ecm_cadsr_password", "ecm_cadsr_credential", "ecm_license_key", "ecm_auth_public_key", "ecm_admin_token", "ecm_redis_password"]
+
+[[rules.allowlists]]
+description = "Documented placeholders and code that references a secret store (e.g. ecs.Secret.from_secrets_manager(...))"
+regexTarget = "secret"
+regexes = [
+    '''^(?:user:password|password|changeme|xxx+|\*+)$''',
+    '''^[A-Za-z_]\w*(?:\.[A-Za-z_]\w*)+\(''',
+    '''^[-?+=]''',  # shell parameter expansion such as ${ECM_REDIS_PASSWORD:?required}
+]
+
+# A Redis URL with an inline password (ECM_CACHE_URL=redis://:secret@host).
+[[rules]]
+id = "evs-cadsr-mcp-cache-url-password"
+description = "Password embedded in ECM_CACHE_URL"
+regex = '''(?i)\bECM_CACHE_URL\b["']?[ \t]*[:=][ \t]*["']?rediss?://[^:\s/@]*:([^\s"'`@$<{][^\s"'`@]*)@'''
+secretGroup = 1
+keywords = ["ecm_cache_url"]
+
+[allowlist]
+description = "Third-party and generated files"
+paths = [
+    '''(^|/)\.venv/''',
+    '''(^|/)__pycache__/''',
+    '''(^|/)\.ruff_cache/''',
+]

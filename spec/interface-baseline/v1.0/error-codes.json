@@ -1,0 +1,41 @@
+{
+  "bound_exceeded": {
+    "retryable": false
+  },
+  "capability_unavailable": {
+    "retryable": false
+  },
+  "cursor_expired": {
+    "retryable": false
+  },
+  "internal_error": {
+    "retryable": false
+  },
+  "invalid_request": {
+    "retryable": false
+  },
+  "license_required": {
+    "retryable": false
+  },
+  "not_found": {
+    "retryable": false
+  },
+  "permission_denied": {
+    "retryable": false
+  },
+  "rate_limited": {
+    "retryable": true
+  },
+  "release_mismatch": {
+    "retryable": false
+  },
+  "release_not_available": {
+    "retryable": false
+  },
+  "timeout": {
+    "retryable": true
+  },
+  "upstream_unavailable": {
+    "retryable": true
+  }
+}

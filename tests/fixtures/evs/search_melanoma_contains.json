@@ -1,0 +1,13 @@
+{
+  "_note": "Hand-authored, abbreviated. GET /concept/ncit_26.10d/search?term=melanoma&type=contains&include=minimal&pageSize=3. Replace with a live recording.",
+  "data": {
+    "total": 412,
+    "timeTaken": 23,
+    "parameters": { "term": "melanoma", "type": "contains", "include": "minimal", "fromRecord": 0, "pageSize": 3 },
+    "concepts": [
+      { "code": "C3224", "name": "Melanoma", "terminology": "ncit", "version": "26.10d", "leaf": false, "active": true },
+      { "code": "C3510", "name": "Cutaneous Melanoma", "terminology": "ncit", "version": "26.10d", "leaf": false, "active": true },
+      { "code": "C7712", "name": "Uveal Melanoma", "terminology": "ncit", "version": "26.10d", "leaf": false, "active": true }
+    ]
+  }
+}

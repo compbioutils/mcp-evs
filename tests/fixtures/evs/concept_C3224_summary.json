@@ -1,0 +1,29 @@
+{
+  "_note": "Hand-authored, abbreviated, from the EVS REST API documented concept shape (GET /concept/ncit_26.10d/C3224?include=summary). Replace with a live recording.",
+  "data": {
+    "code": "C3224",
+    "name": "Melanoma",
+    "terminology": "ncit",
+    "version": "26.10d",
+    "conceptStatus": "DEFAULT",
+    "leaf": false,
+    "active": true,
+    "synonyms": [
+      { "name": "Melanoma", "termType": "PT", "type": "FULL_SYN", "source": "NCI" },
+      { "name": "Malignant Melanoma", "termType": "SY", "type": "FULL_SYN", "source": "NCI" },
+      { "name": "MELANOMA", "termType": "PT", "type": "FULL_SYN", "source": "CDISC", "code": "C3224" },
+      { "name": "Melanoma, NOS", "termType": "PT", "type": "FULL_SYN", "source": "GDC" },
+      { "name": "Melanoma", "termType": "DN", "type": "Display_Name" }
+    ],
+    "definitions": [
+      { "definition": "A malignant, usually aggressive tumor composed of atypical, neoplastic melanocytes.", "source": "NCI", "type": "DEFINITION" }
+    ],
+    "properties": [
+      { "type": "Semantic_Type", "value": "Neoplastic Process" },
+      { "type": "UMLS_CUI", "value": "C0025202" },
+      { "type": "Neoplastic_Status", "value": "Malignant" },
+      { "type": "ICD-O-3_Code", "value": "8720/3" },
+      { "type": "Legacy_Concept_Name", "value": "Melanoma" }
+    ]
+  }
+}

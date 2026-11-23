@@ -1,0 +1,304 @@
+{
+  "_note": "Hand-authored. Combined small fixtures for hierarchy, subset, mapset and history endpoints. Each key is the URL path (without base) used by tests/conftest.py. Replace with live recordings.",
+  "/concept/ncit_26.10d/C3224/children": [
+    {
+      "code": "C3510",
+      "name": "Cutaneous Melanoma",
+      "terminology": "ncit",
+      "version": "26.10d",
+      "leaf": false
+    },
+    {
+      "code": "C7712",
+      "name": "Uveal Melanoma",
+      "terminology": "ncit",
+      "version": "26.10d",
+      "leaf": false
+    }
+  ],
+  "/concept/ncit_26.10d/C3224/parents": [
+    {
+      "code": "C7058",
+      "name": "Melanocytic Neoplasm",
+      "terminology": "ncit",
+      "version": "26.10d",
+      "leaf": false
+    },
+    {
+      "code": "C9305",
+      "name": "Malignant Neoplasm",
+      "terminology": "ncit",
+      "version": "26.10d",
+      "leaf": false
+    }
+  ],
+  "/concept/ncit_26.10d/roots": [
+    {
+      "code": "C12913",
+      "name": "Abnormal Cell",
+      "terminology": "ncit",
+      "version": "26.10d",
+      "leaf": false
+    },
+    {
+      "code": "C7057",
+      "name": "Disease, Disorder or Finding",
+      "terminology": "ncit",
+      "version": "26.10d",
+      "leaf": false
+    }
+  ],
+  "/concept/ncit_26.10d/C3224/descendants": [
+    {
+      "code": "C3510",
+      "name": "Cutaneous Melanoma",
+      "level": 1,
+      "leaf": false
+    },
+    {
+      "code": "C7712",
+      "name": "Uveal Melanoma",
+      "level": 1,
+      "leaf": false
+    },
+    {
+      "code": "C8410",
+      "name": "Breast Melanoma",
+      "level": 1,
+      "leaf": true
+    },
+    {
+      "code": "C4236",
+      "name": "Childhood Melanoma",
+      "level": 1,
+      "leaf": true
+    }
+  ],
+  "/concept/ncit_26.10d/C3224/pathsToRoot": [
+    [
+      {
+        "code": "C3224",
+        "name": "Melanoma",
+        "level": 0
+      },
+      {
+        "code": "C7058",
+        "name": "Melanocytic Neoplasm",
+        "level": 1
+      },
+      {
+        "code": "C3262",
+        "name": "Neoplasm",
+        "level": 2
+      },
+      {
+        "code": "C2991",
+        "name": "Disease or Disorder",
+        "level": 3
+      },
+      {
+        "code": "C7057",
+        "name": "Disease, Disorder or Finding",
+        "level": 4
+      }
+    ],
+    [
+      {
+        "code": "C3224",
+        "name": "Melanoma",
+        "level": 0
+      },
+      {
+        "code": "C9305",
+        "name": "Malignant Neoplasm",
+        "level": 1
+      },
+      {
+        "code": "C3262",
+        "name": "Neoplasm",
+        "level": 2
+      },
+      {
+        "code": "C2991",
+        "name": "Disease or Disorder",
+        "level": 3
+      },
+      {
+        "code": "C7057",
+        "name": "Disease, Disorder or Finding",
+        "level": 4
+      }
+    ]
+  ],
+  "/subset/ncit": [
+    {
+      "code": "C54459",
+      "name": "CDISC Subset Terminology",
+      "terminology": "ncit",
+      "version": "26.10d",
+      "children": [
+        {
+          "code": "C61410",
+          "name": "CDISC SDTM Terminology",
+          "terminology": "ncit",
+          "version": "26.10d"
+        }
+      ]
+    },
+    {
+      "code": "C177537",
+      "name": "GDC Terminology",
+      "terminology": "ncit",
+      "version": "26.10d"
+    }
+  ],
+  "/subset/ncit/C177537": {
+    "code": "C177537",
+    "name": "GDC Terminology",
+    "terminology": "ncit",
+    "version": "26.10d"
+  },
+  "/subset/ncit_26.10d/C177537/members": [
+    {
+      "code": "C3224",
+      "name": "Melanoma",
+      "terminology": "ncit",
+      "version": "26.10d"
+    },
+    {
+      "code": "C2926",
+      "name": "Lung Non-Small Cell Carcinoma",
+      "terminology": "ncit",
+      "version": "26.10d"
+    }
+  ],
+  "/mapset": [
+    {
+      "code": "NCIt_Maps_To_GDC",
+      "name": "NCIt_Maps_To_GDC",
+      "version": "202610",
+      "properties": [
+        {
+          "type": "downloadOnly",
+          "value": "false"
+        },
+        {
+          "type": "sourceTerminology",
+          "value": "NCIt"
+        },
+        {
+          "type": "targetTerminology",
+          "value": "GDC"
+        },
+        {
+          "type": "targetTerminologyVersion",
+          "value": "4.0"
+        }
+      ]
+    },
+    {
+      "code": "NCIt_Maps_To_MedDRA",
+      "name": "NCIt_Maps_To_MedDRA",
+      "version": "202610",
+      "properties": [
+        {
+          "type": "downloadOnly",
+          "value": "false"
+        },
+        {
+          "type": "sourceTerminology",
+          "value": "NCIt"
+        },
+        {
+          "type": "targetTerminology",
+          "value": "MedDRA"
+        },
+        {
+          "type": "targetTerminologyVersion",
+          "value": "29.0"
+        }
+      ]
+    }
+  ],
+  "/mapset/NCIt_Maps_To_GDC": {
+    "code": "NCIt_Maps_To_GDC",
+    "name": "NCIt_Maps_To_GDC",
+    "version": "202610",
+    "properties": [
+      {
+        "type": "sourceTerminology",
+        "value": "NCIt"
+      },
+      {
+        "type": "targetTerminology",
+        "value": "GDC"
+      }
+    ]
+  },
+  "/mapset/NCIt_Maps_To_GDC/maps": {
+    "total": 2,
+    "maps": [
+      {
+        "sourceCode": "C3224",
+        "sourceName": "Melanoma",
+        "sourceTerminology": "NCIt",
+        "type": "Has Synonym",
+        "targetCode": "8720/3",
+        "targetName": "Melanoma, NOS",
+        "targetTermType": "PT",
+        "targetTerminology": "GDC",
+        "targetTerminologyVersion": "4.0"
+      },
+      {
+        "sourceCode": "C2926",
+        "sourceName": "Lung Non-Small Cell Carcinoma",
+        "sourceTerminology": "NCIt",
+        "type": "Has Synonym",
+        "targetCode": "8046/3",
+        "targetName": "Non-small cell carcinoma",
+        "targetTermType": "PT",
+        "targetTerminology": "GDC",
+        "targetTerminologyVersion": "4.0"
+      }
+    ]
+  },
+  "/mapset/NCIt_Maps_To_MedDRA": {
+    "code": "NCIt_Maps_To_MedDRA",
+    "name": "NCIt_Maps_To_MedDRA",
+    "version": "202610",
+    "properties": [
+      {
+        "type": "sourceTerminology",
+        "value": "NCIt"
+      },
+      {
+        "type": "targetTerminology",
+        "value": "MedDRA"
+      }
+    ]
+  },
+  "/mapset/NCIt_Maps_To_MedDRA/maps": {
+    "total": 12345,
+    "maps": [
+      {
+        "sourceCode": "C3224",
+        "sourceName": "Melanoma",
+        "sourceTerminology": "NCIt",
+        "type": "Broader",
+        "targetCode": "10025650",
+        "targetName": "Malignant melanoma",
+        "targetTerminology": "MedDRA"
+      }
+    ]
+  },
+  "/history/ncit_26.10d/C12345/replacements": [
+    {
+      "code": "C12345",
+      "name": "Old Retired Concept",
+      "action": "retire",
+      "date": "2010-05-01",
+      "replacementCode": "C3224",
+      "replacementName": "Melanoma"
+    }
+  ]
+}

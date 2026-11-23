@@ -1,0 +1,36 @@
+# Local two-tier deployment: server + Redis-compatible shared cache.
+#   ECM_REDIS_PASSWORD=$(openssl rand -hex 24) docker compose -f deploy/docker-compose.yml up --build
+# MCP endpoint: http://127.0.0.1:8000/mcp   health: /healthz /readyz   metrics: /metrics (needs ECM_ADMIN_TOKEN)
+# Ports are published on 127.0.0.1 only. Redis is reachable only on the internal compose network.
+services:
+  redis:
+    image: redis:7-alpine@sha256:7f7d30b7fdd09467bac58198a1f166dd69789d348d4fe859cccb20e0cf287fbe
+    command: ["sh", "-c", "exec redis-server --maxmemory 256mb --maxmemory-policy allkeys-lru --requirepass \"$$REDIS_PASSWORD\""]
+    environment:
+      REDIS_PASSWORD: ${ECM_REDIS_PASSWORD:?set ECM_REDIS_PASSWORD}
+  evs-cadsr-mcp:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    depends_on: [redis]
+    ports: ["127.0.0.1:8000:8000"]
+    environment:
+      ECM_PROFILE: unified
+      ECM_PUBLIC_HOST: localhost
+      ECM_ALLOWED_ORIGINS: '["http://localhost","http://127.0.0.1","http://localhost:8000"]'
+      ECM_CACHE_URL: redis://:${ECM_REDIS_PASSWORD:?set ECM_REDIS_PASSWORD}@redis:6379/0
+      ECM_AUDIT_SINK: stdout
+      ECM_RATE_LIMIT_PER_MINUTE: "120"
+      ECM_RATE_LIMIT_BURST: "30"
+      ECM_ADMIN_TOKEN: ${ECM_ADMIN_TOKEN:-}
+      # Local only: the port above is bound to 127.0.0.1. Remove this line and configure JWT for any
+      # shared or remote deployment.
+      ECM_ALLOW_UNAUTHENTICATED: "true"
+      # Remote mode (OAuth 2.1 resource server); scope enforcement is on by default with JWT:
+      # ECM_AUTH_MODE: jwt
+      # ECM_AUTH_JWKS_URI: https://idp.example.nih.gov/.well-known/jwks.json
+      # ECM_AUTH_ISSUER: https://idp.example.nih.gov/
+      # ECM_AUTH_AUDIENCE: https://evs-cadsr-mcp.example.nih.gov
+      # ECM_CADSR_USERNAME: ${ECM_CADSR_USERNAME}
+      # ECM_CADSR_PASSWORD: ${ECM_CADSR_PASSWORD}
+      # ECM_LICENSE_KEY: ${ECM_LICENSE_KEY}

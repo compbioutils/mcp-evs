@@ -1,0 +1,48 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.compbioutils/evs-cadsr-mcp",
+  "title": "NCI EVS + caDSR",
+  "description": "Read-only NCI Thesaurus (EVS) and caDSR lookups with release-pinned, cited answers",
+  "repository": {
+    "url": "https://github.com/compbioutils/mcp-evs",
+    "source": "github"
+  },
+  "version": "0.1.0",
+  "packages": [
+    {
+      "registryType": "pypi",
+      "registryBaseUrl": "https://pypi.org",
+      "identifier": "evs-cadsr-mcp",
+      "version": "0.1.0",
+      "runtimeHint": "uvx",
+      "transport": {
+        "type": "stdio"
+      },
+      "packageArguments": [
+        { "type": "positional", "value": "serve" }
+      ],
+      "environmentVariables": [
+        {
+          "name": "ECM_PROFILE",
+          "description": "Tool set: evs-only (default, no credentials), cadsr-only, or unified",
+          "default": "evs-only",
+          "choices": ["evs-only", "cadsr-only", "unified"]
+        },
+        {
+          "name": "ECM_CADSR_USERNAME",
+          "description": "caDSR user for the LOV and CDE Match services (unified or cadsr-only profile)"
+        },
+        {
+          "name": "ECM_CADSR_PASSWORD",
+          "description": "Password for ECM_CADSR_USERNAME",
+          "isSecret": true
+        },
+        {
+          "name": "ECM_LICENSE_KEY",
+          "description": "EVS license key for license-gated map targets such as MedDRA",
+          "isSecret": true
+        }
+      ]
+    }
+  ]
+}

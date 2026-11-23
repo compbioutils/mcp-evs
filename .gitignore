@@ -1,0 +1,39 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Editors and tooling
+.idea/
+.vscode/
+*.swp
+
+# Local-only drafts
+PR_BODY.md
+
+# Local settings and secrets (never commit). .env.example is the committed template;
+# real values belong in .env or the secrets manager. See .gitleaks.toml for the scanner.
+.env
+.env.*
+!.env.example
+.envrc
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+id_rsa*
+id_ed25519*
+.netrc
+.pypirc
+*credentials*.json
+*secret*.json
+*.secrets
+secrets/
+# AWS CDK output can embed account details
+deploy/cdk/cdk.out/

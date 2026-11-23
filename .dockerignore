@@ -1,0 +1,36 @@
+# Keep the build context small and free of secrets. The Dockerfile copies only
+# deploy/requirements.lock, pyproject.toml, README.md and src/.
+data
+.git
+.github
+.venv
+venv
+**/__pycache__
+*.py[cod]
+.pytest_cache
+.ruff_cache
+.mypy_cache
+dist
+build
+*.egg-info
+
+# Secrets and local config
+.env
+.env.*
+!.env.example
+.envrc
+*.pem
+*.key
+*credentials*.json
+
+# Not needed in the image
+tests
+scripts
+docs
+design-docs-and-req
+spec
+deploy/cdk
+.vscode
+.idea
+*.md
+!README.md

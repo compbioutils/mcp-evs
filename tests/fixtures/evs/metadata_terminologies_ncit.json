@@ -1,0 +1,39 @@
+{
+  "_note": "Hand-authored from the EVS REST API documented shape (GET /metadata/terminologies?terminology=ncit). Replace with a live recording via scripts/record_fixtures.py.",
+  "data": [
+    {
+      "terminology": "ncit",
+      "version": "26.10d",
+      "date": "October 27, 2026",
+      "name": "NCI Thesaurus 26.10d",
+      "description": "NCI Thesaurus, a controlled vocabulary in support of NCI administrative and scientific activities.",
+      "graph": "http://NCI_T_monthly",
+      "source": "NCI",
+      "terminologyVersion": "ncit_26.10d",
+      "latest": true,
+      "tags": { "monthly": "true", "weekly": "true" },
+      "indexName": "concept_ncit_2610d",
+      "metadata": { "uiLabel": "NCI Thesaurus", "loader": "rdf", "licenseText": null }
+    },
+    {
+      "terminology": "ncit",
+      "version": "26.09d",
+      "date": "September 29, 2026",
+      "name": "NCI Thesaurus 26.09d",
+      "terminologyVersion": "ncit_26.09d",
+      "latest": false,
+      "tags": { "monthly": "true" },
+      "metadata": { "uiLabel": "NCI Thesaurus" }
+    },
+    {
+      "terminology": "ncit",
+      "version": "26.08e",
+      "date": "August 31, 2026",
+      "name": "NCI Thesaurus 26.08e",
+      "terminologyVersion": "ncit_26.08e",
+      "latest": false,
+      "tags": { "monthly": "true" },
+      "metadata": { "uiLabel": "NCI Thesaurus" }
+    }
+  ]
+}

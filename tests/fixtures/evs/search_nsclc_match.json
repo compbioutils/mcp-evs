@@ -1,0 +1,20 @@
+{
+  "_note": "Hand-authored, abbreviated. GET /concept/ncit_26.10d/search?term=NSCLC&type=match&include=summary,synonyms. Replace with a live recording.",
+  "data": {
+    "total": 1,
+    "timeTaken": 11,
+    "concepts": [
+      {
+        "code": "C2926", "name": "Lung Non-Small Cell Carcinoma", "terminology": "ncit", "version": "26.10d", "leaf": false, "active": true,
+        "synonyms": [
+          { "name": "Lung Non-Small Cell Carcinoma", "termType": "PT", "type": "FULL_SYN", "source": "NCI" },
+          { "name": "NSCLC", "termType": "AB", "type": "FULL_SYN", "source": "NCI" },
+          { "name": "Non-Small Cell Lung Cancer", "termType": "SY", "type": "FULL_SYN", "source": "NCI" },
+          { "name": "Non-Small Cell Lung Carcinoma", "termType": "SY", "type": "FULL_SYN", "source": "NCI" }
+        ],
+        "definitions": [ { "definition": "A group of at least three distinct histological types of lung cancer...", "source": "NCI", "type": "DEFINITION" } ],
+        "properties": [ { "type": "Semantic_Type", "value": "Neoplastic Process" } ]
+      }
+    ]
+  }
+}

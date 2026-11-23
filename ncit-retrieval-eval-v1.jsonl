@@ -1,0 +1,67 @@
+{"id": "concept_name-001", "category": "concept_name", "query": "Melanoma", "expected": ["C3224"], "primary": "C3224", "confidence": "high", "validation": "pending SME"}
+{"id": "concept_name-002", "category": "concept_name", "query": "Lung Non-Small Cell Carcinoma", "expected": ["C2926"], "primary": "C2926", "confidence": "high", "validation": "pending SME"}
+{"id": "concept_name-003", "category": "concept_name", "query": "Breast Carcinoma", "expected": ["C4872"], "primary": "C4872", "confidence": "high", "validation": "pending SME"}
+{"id": "concept_name-004", "category": "concept_name", "query": "Multiple Myeloma", "expected": ["C3242"], "primary": "C3242", "confidence": "high", "validation": "pending SME"}
+{"id": "concept_name-005", "category": "concept_name", "query": "Glioblastoma", "expected": ["C3058"], "primary": "C3058", "confidence": "high", "validation": "pending SME"}
+{"id": "concept_name-006", "category": "concept_name", "query": "Colorectal Carcinoma", "expected": ["C2955"], "primary": "C2955", "confidence": "high", "validation": "pending SME"}
+{"id": "concept_name-007", "category": "concept_name", "query": "Prostate Carcinoma", "expected": ["C4863"], "primary": "C4863", "confidence": "high", "validation": "pending SME"}
+{"id": "concept_name-008", "category": "concept_name", "query": "Acute Myeloid Leukemia", "expected": ["C3171"], "primary": "C3171", "confidence": "high", "validation": "pending SME"}
+{"id": "concept_name-009", "category": "concept_name", "query": "Hodgkin Lymphoma", "expected": ["C9357"], "primary": "C9357", "confidence": "high", "validation": "pending SME"}
+{"id": "concept_name-010", "category": "concept_name", "query": "Pancreatic Adenocarcinoma", "expected": ["C8294"], "primary": "C8294", "confidence": "high", "validation": "pending SME"}
+{"id": "concept_name-011", "category": "concept_name", "query": "Hepatocellular Carcinoma", "expected": ["C3099"], "primary": "C3099", "confidence": "high", "validation": "pending SME"}
+{"id": "concept_name-012", "category": "concept_name", "query": "Renal Cell Carcinoma", "expected": ["C9385"], "primary": "C9385", "confidence": "high", "validation": "pending SME"}
+{"id": "concept_name-013", "category": "concept_name", "query": "Ovarian Carcinoma", "expected": ["C4908"], "primary": "C4908", "confidence": "high", "validation": "pending SME"}
+{"id": "concept_name-014", "category": "concept_name", "query": "Neuroblastoma", "expected": ["C3270"], "primary": "C3270", "confidence": "high", "validation": "pending SME"}
+{"id": "concept_name-015", "category": "concept_name", "query": "Osteosarcoma", "expected": ["C9145"], "primary": "C9145", "confidence": "high", "validation": "pending SME"}
+{"id": "synonym_abbreviation-001", "category": "synonym_abbreviation", "query": "NSCLC", "expected": ["C2926"], "primary": "C2926", "confidence": "medium", "validation": "pending SME"}
+{"id": "synonym_abbreviation-002", "category": "synonym_abbreviation", "query": "AML", "expected": ["C3171"], "primary": "C3171", "confidence": "medium", "validation": "pending SME"}
+{"id": "synonym_abbreviation-003", "category": "synonym_abbreviation", "query": "GBM", "expected": ["C3058"], "primary": "C3058", "confidence": "medium", "validation": "pending SME"}
+{"id": "synonym_abbreviation-004", "category": "synonym_abbreviation", "query": "HCC", "expected": ["C3099"], "primary": "C3099", "confidence": "medium", "validation": "pending SME"}
+{"id": "synonym_abbreviation-005", "category": "synonym_abbreviation", "query": "CLL", "expected": ["C3163"], "primary": "C3163", "confidence": "medium", "validation": "pending SME"}
+{"id": "synonym_abbreviation-006", "category": "synonym_abbreviation", "query": "DLBCL", "expected": ["C8851"], "primary": "C8851", "confidence": "medium", "validation": "pending SME"}
+{"id": "synonym_abbreviation-007", "category": "synonym_abbreviation", "query": "RCC", "expected": ["C9385"], "primary": "C9385", "confidence": "medium", "validation": "pending SME"}
+{"id": "synonym_abbreviation-008", "category": "synonym_abbreviation", "query": "Ewing sarcoma", "expected": ["C4817"], "primary": "C4817", "confidence": "medium", "validation": "pending SME"}
+{"id": "synonym_abbreviation-009", "category": "synonym_abbreviation", "query": "Wilms tumor", "expected": ["C3267"], "primary": "C3267", "confidence": "medium", "validation": "pending SME"}
+{"id": "synonym_abbreviation-010", "category": "synonym_abbreviation", "query": "Kaposi sarcoma", "expected": ["C9087"], "primary": "C9087", "confidence": "medium", "validation": "pending SME"}
+{"id": "definition_style-001", "category": "definition_style", "query": "cancer that starts in the plasma cells of bone marrow", "expected": ["C3242"], "primary": "C3242", "confidence": "high", "validation": "pending SME"}
+{"id": "definition_style-002", "category": "definition_style", "query": "malignant tumor composed of atypical melanocytes", "expected": ["C3224"], "primary": "C3224", "confidence": "high", "validation": "pending SME"}
+{"id": "definition_style-003", "category": "definition_style", "query": "aggressive brain tumor arising from astrocytes, WHO grade IV", "expected": ["C3058"], "primary": "C3058", "confidence": "high", "validation": "pending SME"}
+{"id": "definition_style-004", "category": "definition_style", "query": "leukemia with rapid accumulation of immature myeloid cells in the bone marrow", "expected": ["C3171"], "primary": "C3171", "confidence": "medium", "validation": "pending SME"}
+{"id": "definition_style-005", "category": "definition_style", "query": "malignant epithelial tumor with glandular differentiation", "expected": ["C2852"], "primary": "C2852", "confidence": "medium", "validation": "pending SME"}
+{"id": "lay_language-001", "category": "lay_language", "query": "lung cancer", "expected": ["C4878", "C7377"], "primary": "C4878", "confidence": "low", "validation": "pending SME", "note": "Lung Carcinoma vs Malignant Lung Neoplasm; SME to decide the primary"}
+{"id": "lay_language-002", "category": "lay_language", "query": "breast cancer", "expected": ["C4872", "C9335"], "primary": "C4872", "confidence": "low", "validation": "pending SME"}
+{"id": "lay_language-003", "category": "lay_language", "query": "blood cancer", "expected": ["C3161", "C9300"], "primary": "C3161", "confidence": "low", "validation": "pending SME", "note": "Leukemia vs Hematopoietic and Lymphoid Cell Neoplasm"}
+{"id": "lay_language-004", "category": "lay_language", "query": "brain tumor", "expected": ["C3568", "C9375"], "primary": "C3568", "confidence": "low", "validation": "pending SME"}
+{"id": "icdo_morphology-001", "category": "icdo_morphology", "query": "8140/3", "expected": ["C2852"], "primary": "C2852", "confidence": "high", "validation": "pending SME", "note": "Adenocarcinoma, NOS"}
+{"id": "icdo_morphology-002", "category": "icdo_morphology", "query": "8720/3", "expected": ["C3224"], "primary": "C3224", "confidence": "high", "validation": "pending SME", "note": "Malignant melanoma, NOS"}
+{"id": "icdo_morphology-003", "category": "icdo_morphology", "query": "9440/3", "expected": ["C3058"], "primary": "C3058", "confidence": "high", "validation": "pending SME", "note": "Glioblastoma, NOS"}
+{"id": "icdo_morphology-004", "category": "icdo_morphology", "query": "8070/3", "expected": ["C2929"], "primary": "C2929", "confidence": "high", "validation": "pending SME", "note": "Squamous cell carcinoma, NOS"}
+{"id": "icdo_morphology-005", "category": "icdo_morphology", "query": "9861/3", "expected": ["C3171"], "primary": "C3171", "confidence": "high", "validation": "pending SME", "note": "Acute myeloid leukemia, NOS"}
+{"id": "icdo_topography-001", "category": "icdo_topography", "query": "C34.1", "expected": ["C12248"], "primary": "C12248", "confidence": "low", "validation": "pending SME", "note": "Upper lobe of lung; verify code"}
+{"id": "icdo_topography-002", "category": "icdo_topography", "query": "C50.9", "expected": ["C12971"], "primary": "C12971", "confidence": "low", "validation": "pending SME", "note": "Breast, NOS; verify code"}
+{"id": "cde_derived-001", "category": "cde_derived", "query": "tumor_grade: the degree of abnormality of cancer cells, a measure of differentiation and aggressiveness", "expected": ["C18000"], "primary": "C18000", "confidence": "medium", "validation": "pending SME", "note": "GDC tumor_grade description; Appendix A"}
+{"id": "cde_derived-002", "category": "cde_derived", "query": "race: an arbitrary classification of a taxonomic group that is a division of a species", "expected": ["C17049"], "primary": "C17049", "confidence": "high", "validation": "pending SME"}
+{"id": "cde_derived-003", "category": "cde_derived", "query": "ethnicity: hispanic or latino", "expected": ["C17459"], "primary": "C17459", "confidence": "high", "validation": "pending SME"}
+{"id": "cde_derived-004", "category": "cde_derived", "query": "vital_status: the survival state of the person", "expected": ["C25717"], "primary": "C25717", "confidence": "high", "validation": "pending SME"}
+{"id": "cde_derived-005", "category": "cde_derived", "query": "sex at birth: the biological sex assigned at birth", "expected": ["C28421"], "primary": "C28421", "confidence": "medium", "validation": "pending SME", "note": "Sex; sex_at_birth CDE 7572817"}
+{"id": "cde_derived-006", "category": "cde_derived", "query": "days to birth: number of days between index date and date of birth", "expected": ["C156420"], "primary": "C156420", "confidence": "low", "validation": "pending SME", "note": "verify; may have no exact NCIt concept"}
+{"id": "anatomy-001", "category": "anatomy", "query": "Skin", "expected": ["C12470"], "primary": "C12470", "confidence": "high", "validation": "pending SME"}
+{"id": "anatomy-002", "category": "anatomy", "query": "Uvea", "expected": ["C12775"], "primary": "C12775", "confidence": "high", "validation": "pending SME"}
+{"id": "anatomy-003", "category": "anatomy", "query": "Pancreas", "expected": ["C12393"], "primary": "C12393", "confidence": "high", "validation": "pending SME"}
+{"id": "anatomy-004", "category": "anatomy", "query": "Liver", "expected": ["C12392"], "primary": "C12392", "confidence": "high", "validation": "pending SME"}
+{"id": "anatomy-005", "category": "anatomy", "query": "Lung", "expected": ["C12468"], "primary": "C12468", "confidence": "high", "validation": "pending SME"}
+{"id": "gene-001", "category": "gene", "query": "BRAF Gene", "expected": ["C17476"], "primary": "C17476", "confidence": "medium", "validation": "pending SME"}
+{"id": "gene-002", "category": "gene", "query": "TP53 Gene", "expected": ["C17359"], "primary": "C17359", "confidence": "medium", "validation": "pending SME"}
+{"id": "gene-003", "category": "gene", "query": "KRAS Gene", "expected": ["C25785"], "primary": "C25785", "confidence": "medium", "validation": "pending SME"}
+{"id": "gene-004", "category": "gene", "query": "EGFR Gene", "expected": ["C17757"], "primary": "C17757", "confidence": "medium", "validation": "pending SME"}
+{"id": "drug-001", "category": "drug", "query": "Pembrolizumab", "expected": ["C106432"], "primary": "C106432", "confidence": "high", "validation": "pending SME"}
+{"id": "drug-002", "category": "drug", "query": "Imatinib", "expected": ["C62035"], "primary": "C62035", "confidence": "high", "validation": "pending SME"}
+{"id": "drug-003", "category": "drug", "query": "Cisplatin", "expected": ["C376"], "primary": "C376", "confidence": "high", "validation": "pending SME"}
+{"id": "finding-001", "category": "finding", "query": "Fatigue", "expected": ["C3036"], "primary": "C3036", "confidence": "high", "validation": "pending SME"}
+{"id": "finding-002", "category": "finding", "query": "Nausea", "expected": ["C3258"], "primary": "C3258", "confidence": "high", "validation": "pending SME"}
+{"id": "finding-003", "category": "finding", "query": "Fever", "expected": ["C3038"], "primary": "C3038", "confidence": "high", "validation": "pending SME"}
+{"id": "finding-004", "category": "finding", "query": "Hypertension", "expected": ["C3117"], "primary": "C3117", "confidence": "high", "validation": "pending SME"}
+{"id": "negative-001", "category": "negative", "query": "quarterly budget variance", "expected": [], "primary": null, "confidence": "high", "validation": "pending SME"}
+{"id": "negative-002", "category": "negative", "query": "kubernetes pod scheduling", "expected": [], "primary": null, "confidence": "high", "validation": "pending SME"}
+{"id": "negative-003", "category": "negative", "query": "mortgage interest rate", "expected": [], "primary": null, "confidence": "high", "validation": "pending SME"}
+{"id": "negative-004", "category": "negative", "query": "how to change a tire", "expected": [], "primary": null, "confidence": "high", "validation": "pending SME"}

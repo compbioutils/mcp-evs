@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "evsCadsr": {
+      "type": "stdio",
+      "command": "uv",
+      "args": ["run", "--no-sync", "evs-cadsr-mcp", "serve", "--transport", "stdio"],
+      "tools": ["*"]
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "_note": "Hand-authored from the EVS REST API documented shape (GET /metadata/terminologies?latest=true). Replace with a live recording.",
+  "data": [
+    {
+      "terminology": "ncit", "version": "26.10d", "date": "October 27, 2026", "name": "NCI Thesaurus 26.10d",
+      "terminologyVersion": "ncit_26.10d", "latest": true, "tags": { "monthly": "true", "weekly": "true" },
+      "description": "NCI Thesaurus", "metadata": { "uiLabel": "NCI Thesaurus" }
+    },
+    {
+      "terminology": "ncim", "version": "202608", "name": "NCI Metathesaurus 202608",
+      "terminologyVersion": "ncim_202608", "latest": true, "tags": {},
+      "description": "NCI Metathesaurus", "metadata": { "licenseText": "Some material in the UMLS Metathesaurus is from copyrighted sources..." }
+    },
+    {
+      "terminology": "mdr", "version": "29_0", "name": "MedDRA 29.0",
+      "terminologyVersion": "mdr_29_0", "latest": true, "tags": {},
+      "description": "Medical Dictionary for Regulatory Activities", "metadata": { "licenseText": "MedDRA requires a license.", "licenseCheck": "true" }
+    }
+  ]
+}

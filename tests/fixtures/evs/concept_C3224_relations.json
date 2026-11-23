@@ -1,0 +1,44 @@
+{
+  "_note": "Hand-authored, abbreviated. GET /concept/ncit_26.10d/C3224?include=roles,associations,inverseRoles,inverseAssociations,disjointWith,maps,history,parents,children. Replace with a live recording.",
+  "data": {
+    "code": "C3224",
+    "name": "Melanoma",
+    "terminology": "ncit",
+    "version": "26.10d",
+    "leaf": false,
+    "active": true,
+    "parents": [
+      { "code": "C7058", "name": "Melanocytic Neoplasm", "terminology": "ncit", "version": "26.10d", "leaf": false },
+      { "code": "C9305", "name": "Malignant Neoplasm", "terminology": "ncit", "version": "26.10d", "leaf": false }
+    ],
+    "children": [
+      { "code": "C3510", "name": "Cutaneous Melanoma", "terminology": "ncit", "version": "26.10d", "leaf": false },
+      { "code": "C7712", "name": "Uveal Melanoma", "terminology": "ncit", "version": "26.10d", "leaf": false }
+    ],
+    "roles": [
+      { "type": "Disease_Has_Abnormal_Cell", "relatedCode": "C36859", "relatedName": "Neoplastic Melanocyte" },
+      { "type": "Disease_Has_Normal_Cell_Origin", "relatedCode": "C12612", "relatedName": "Melanocyte" },
+      { "type": "Disease_Excludes_Finding", "relatedCode": "C36122", "relatedName": "Intraepithelial Neoplasia" }
+    ],
+    "inverseRoles": [
+      { "type": "Gene_Product_Malfunction_Associated_With_Disease", "relatedCode": "C17356", "relatedName": "BRAF Protein" }
+    ],
+    "associations": [
+      { "type": "Concept_In_Subset", "relatedCode": "C116977", "relatedName": "CDISC SEND Terminology", "qualifiers": [] },
+      { "type": "Has_Data_Element", "relatedCode": "C176895", "relatedName": "Melanoma Diagnosis Data Element" }
+    ],
+    "inverseAssociations": [
+      { "type": "Has_Target", "relatedCode": "C26255", "relatedName": "Melanoma Vaccine" }
+    ],
+    "disjointWith": [],
+    "maps": [
+      { "type": "Has Synonym", "targetName": "Melanoma, NOS", "targetTermType": "PT", "targetCode": "8720/3", "targetTerminology": "GDC", "targetTerminologyVersion": "4.0" },
+      { "type": "Related To", "targetName": "Malignant melanoma of skin, unspecified", "targetTermType": "PT", "targetCode": "C43.9", "targetTerminology": "ICD10CM", "targetTerminologyVersion": "2026" },
+      { "type": "Broader", "targetName": "Malignant melanoma", "targetTermType": "PT", "targetCode": "10025650", "targetTerminology": "MedDRA", "targetTerminologyVersion": "29.0" }
+    ],
+    "history": [
+      { "code": "C3224", "name": "Melanoma", "action": "create", "date": "1998-01-01" },
+      { "code": "C3224", "name": "Melanoma", "action": "modify", "date": "2024-03-25" }
+    ]
+  }
+}

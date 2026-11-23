@@ -1,0 +1,36 @@
+{
+  "_note": "Hand-authored GDC-style fragment for demographic.race in the shape of the Submission API _dictionary/demographic response (references resolved). cde_id 2192199 v1.0 per GDC _terms.yaml; enumDef term_ids are NCIt codes. 'not allowed to collect' (C141478) is a GDC value with no caDSR permissible value, and 'other' (C17649) is marked retired in the test catalog.",
+  "id": "demographic",
+  "title": "Demographic",
+  "properties": {
+    "race": {
+      "description": "An arbitrary classification of a taxonomic group that is a division of a species.",
+      "termDef": { "term": "Race Category Text", "source": "caDSR", "cde_id": 2192199, "cde_version": 1.0, "term_url": "https://cadsr.cancer.gov/onedata/dmdirect/NIH/NCI/CO/CDEDD?filter=CDEDD.ITEM_ID=2192199%20and%20ver_nr=1" },
+      "enum": [
+        "american indian or alaska native", "asian", "black or african american", "native hawaiian or other pacific islander",
+        "white", "other", "not reported", "unknown", "not allowed to collect"
+      ],
+      "enumDef": {
+        "american indian or alaska native": { "termDef": { "term": "American Indian or Alaska Native", "source": "NCIt", "cde_id": "C41259", "cde_version": null, "term_id": "C41259", "term_version": "26.10d" } },
+        "asian": { "termDef": { "term": "Asian", "source": "NCIt", "term_id": "C41260", "term_version": "26.10d" } },
+        "black or african american": { "termDef": { "term": "Black or African American", "source": "NCIt", "term_id": "C16352", "term_version": "26.10d" } },
+        "native hawaiian or other pacific islander": { "termDef": { "term": "Native Hawaiian or Other Pacific Islander", "source": "NCIt", "term_id": "C41219", "term_version": "26.10d" } },
+        "white": { "termDef": { "term": "White", "source": "NCIt", "term_id": "C41261", "term_version": "26.10d" } },
+        "other": { "termDef": { "term": "Other", "source": "NCIt", "term_id": "C17649", "term_version": "26.10d" } },
+        "not reported": { "termDef": { "term": "Not Reported", "source": "NCIt", "term_id": "C43234", "term_version": "26.10d" } },
+        "unknown": { "termDef": { "term": "Unknown", "source": "NCIt", "term_id": "C17998", "term_version": "26.10d" } },
+        "not allowed to collect": { "termDef": { "term": "Not Allowed To Collect", "source": "NCIt", "term_id": "C141478", "term_version": "26.10d" } }
+      }
+    },
+    "vital_status": {
+      "description": "The survival state of the person registered on the protocol.",
+      "termDef": { "term": "Patient Vital Status", "source": "caDSR", "cde_id": 5, "cde_version": 5.0 },
+      "enum": [ "Alive", "Dead" ],
+      "enumDef": { "Alive": { "termDef": { "source": "NCIt", "term_id": "C37987" } }, "Dead": { "termDef": { "source": "NCIt", "term_id": "C28554" } } }
+    },
+    "days_to_birth": {
+      "description": "Number of days between the date used for index and the date of birth.",
+      "type": "integer"
+    }
+  }
+}

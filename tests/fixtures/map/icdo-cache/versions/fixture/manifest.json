@@ -1,0 +1,9 @@
+{
+  "source": "https://evs.nci.nih.gov/ftp1/NCI_Thesaurus/Mappings/ICD-O-3_Mappings/",
+  "syncedAt": "2026-11-20T21:43:45+00:00",
+  "changed": [],
+  "files": {
+    "ICD-O-3.1-NCIt_Morphology_Mapping.txt": {"etag": "\"337825e1ce4b579ab196ecad4fabe81c\"", "lastModified": "Sat, 11 Jul 2026 23:29:37 GMT"},
+    "ICD-O-3.1-NCIt_Topography_Mapping.txt": {"etag": "\"1a75eac897ae26ccb17171db87a5860d\"", "lastModified": "Sat, 11 Jul 2026 23:29:37 GMT"}
+  }
+}

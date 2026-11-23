@@ -1,0 +1,8 @@
+ICD-O Code	Level	Term Type	Term type Desc	ICD-O string	NCIm CUI	NCIt Code (if present)	NCIt PT String (Preferred term)
+T	1	HT	Hierarchical term	TOPOGRAPHY	C1522605	C38034	Topography
+C34	3	HT	Hierarchical term	BRONCHUS AND LUNG	CL435409		
+C34.1	4	PT	Preferred term	Upper lobe, lung	C0225756	C12285	Upper Lobe of the Lung
+C34.1	Related	RT	Related term	Lingula of lung	C0225740	C40373	Lingula of the Lung
+C34.1	Related	RT	Related term	Upper lobe, bronchus	C1283266		
+C50.9	4	PT	Preferred term	Breast, NOS	C0006141	C12971	Breast
+C50.9	Synonym	SY	Synonym	Mammary gland	C0929301	C12367	Mammary Gland

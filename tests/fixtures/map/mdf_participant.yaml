@@ -1,0 +1,39 @@
+# Hand-authored Bento MDF-style fragment (CDS/ICDC conventions): caDSR Term at property
+# level, NCIt-free enums. 'race' references the Race CDE; 'vital_status' references a CDE the
+# fake caDSR does not know; 'sample_count' has no Term.
+Nodes:
+  participant:
+    Props:
+      - race
+      - vital_status
+  sample:
+    Props:
+      - sample_count
+PropDefinitions:
+  race:
+    Desc: Race of the participant (OMB categories)
+    Term:
+      - Origin: caDSR
+        Code: "2192199"
+        Version: "1.0"
+        Value: Race Category Text
+    Enum:
+      - White
+      - Asian
+      - Caucasian
+      - Martian
+    Req: Preferred
+  vital_status:
+    Desc: Participant vital status
+    Term:
+      - Origin: caDSR
+        Code: "2847330"
+        Version: "1.0"
+    Enum:
+      - Alive
+      - Dead
+    Req: 'Yes'
+  sample_count:
+    Desc: Number of samples
+    Type: integer
+    Req: 'No'

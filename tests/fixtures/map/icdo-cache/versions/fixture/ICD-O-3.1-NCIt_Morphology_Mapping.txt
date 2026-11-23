@@ -1,0 +1,18 @@
+ICD-O Code	Level	Term Type	Term Type Desc	ICD-O string	NCIm CUI	NCIt Code (if present)	NCIt PT string (Preferred term)
+M	1 (Axis name)	HT	Hierarchical term	MORPHOLOGY	C0332437		
+800	2	HT	Hierarchical term	Neoplasms, NOS	C0375111	C3262	Neoplasm
+8000/9	4	PT	Preferred term	Neoplasm, malignant, uncertain whether primary or metastatic	C0334224	C65153	Malignant Neoplasm, Uncertain Whether Primary or Metastatic
+8000/9	Synonym	SY	Synonym	Unclassified tumor, malignant, uncertain whether primary or metastatic	C0334224	C65153	Malignant Neoplasm, Uncertain Whether Primary or Metastatic
+8140/3	4	PT	Preferred term	Adenocarcinoma, NOS	C0001418	C2852	Adenocarcinoma
+8720/3	4	PT	Preferred term	Malignant melanoma, NOS	C0025202	C3224	Melanoma
+8720/3	Synonym	SY	Synonym	Melanoma, NOS	C0025202	C3224	Melanoma
+9110/1	4	PT	Preferred term	Mesonephric tumor, NOS	C0334531	C4295	Mesonephric Neoplasm
+9110/1	Synonym	SY	Synonym	Wolffian duct tumor	C0334531	C4295	Mesonephric Neoplasm
+9861/3	4	PT	Preferred term	Acute myeloid leukemia, NOS	C0023467	C3171	Acute Myeloid Leukemia
+9861/3	Related	RT	Related term	Acute myeloid leukemia with mutated CEBPA	C2826178	C82433	Acute Myeloid Leukemia with Mutated CEBPA
+9861/3	Related	RT	Related term	Acute myeloid leukemia with mutated NPM1	C2826177	C82431	Acute Myeloid Leukemia with Mutated NPM1
+9861/3	Synonym	SY	Synonym	Acute granulocytic leukemia	C0023467	C3171	Acute Myeloid Leukemia
+9861/3	Synonym	SY	Synonym	Acute myelocytic leukemia	C0023467	C3171	Acute Myeloid Leukemia
+9861/3	Synonym	SY	Synonym	Acute myelogenous leukemia	C0023467	C3171	Acute Myeloid Leukemia
+9861/3	Synonym	SY	Synonym	Acute non-lymphocytic leukemia	C0023467	C3171	Acute Myeloid Leukemia
+9990/3	4	PT	Preferred term	Test-only mapping to a retired concept	C0000000	C17649	Other

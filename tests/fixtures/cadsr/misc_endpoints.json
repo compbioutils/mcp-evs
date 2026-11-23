@@ -1,0 +1,382 @@
+{
+  "_note": "Hand-authored small payloads for the remaining caDSR routes, keyed by URL path (+ a few query-dependent variants). Replace with live recordings. LOV getContextNames and cdeMatch follow the shapes observed on caDSR stage (2026-11-20).",
+  "/rad/NCIAPI/1.0/api/DataElements?publicId=2192199": {
+    "apiResponse": {
+      "type": "S"
+    },
+    "DataElements": [
+      {
+        "publicID": "2192199",
+        "version": "1.0",
+        "longName": "Race Category Text",
+        "workflowStatus": "RELEASED",
+        "latesetVersionIndicator": "No",
+        "dateModified": "2023-11-02"
+      },
+      {
+        "publicID": "2192199",
+        "version": "2.0",
+        "longName": "Race Category Text",
+        "workflowStatus": "DRAFT NEW",
+        "latesetVersionIndicator": "Yes",
+        "dateModified": "2026-03-01"
+      }
+    ]
+  },
+  "/rad/NCIAPI/1.0/api/DataElements/Concept?conceptCode=C17049": {
+    "apiResponse": {
+      "type": "S"
+    },
+    "DataElements": [
+      {
+        "publicId": "2192199",
+        "version": "1.0",
+        "longName": "Race Category Text",
+        "context": "NCIP",
+        "workflowStatus": "RELEASED"
+      },
+      {
+        "publicId": "6424122",
+        "version": "1.0",
+        "longName": "Person Race Category Text",
+        "context": "CCR",
+        "workflowStatus": "RELEASED"
+      },
+      {
+        "publicId": "2003853",
+        "version": "3.1",
+        "longName": "Patient Race Category",
+        "context": "CTEP",
+        "workflowStatus": "SUPERCEDED"
+      }
+    ]
+  },
+  "/rad/NCIAPI/1.0/api/DataElements/Concept?conceptCode=C17049&itemTypeFilter=Property": {
+    "apiResponse": {
+      "type": "S"
+    },
+    "DataElements": [
+      {
+        "publicId": "2192199",
+        "version": "1.0",
+        "longName": "Race Category Text",
+        "context": "NCIP",
+        "workflowStatus": "RELEASED"
+      }
+    ]
+  },
+  "/rad/NCIAPI/1.0/api/DataElements/Concept?conceptCode=C99999": {
+    "apiResponse": {
+      "type": "E",
+      "message": "No data elements found for concept code C99999"
+    }
+  },
+  "/rad/NCIAPI/1.0/api/DataElement/9999999": {
+    "apiResponse": {
+      "type": "E",
+      "message": "Data Element not found"
+    }
+  },
+  "/rad/NCIAPI/1.0/api/DataElement/1": {
+    "apiResponse": {
+      "type": "E",
+      "message": "Invalid parameter: version"
+    }
+  },
+  "/rad/NCIAPI/1.0/api/DataElements/AlternateName": {
+    "apiResponse": {
+      "type": "S"
+    },
+    "DataElements": [
+      {
+        "publicId": "2192199",
+        "version": "1.0",
+        "longName": "Race Category Text",
+        "context": "NCIP",
+        "workflowStatus": "RELEASED"
+      },
+      {
+        "publicId": "2003853",
+        "version": "3.1",
+        "longName": "Patient Race Category",
+        "context": "CTEP",
+        "workflowStatus": "SUPERCEDED"
+      }
+    ]
+  },
+  "/rad/NCIAPI/1.0/api/DataElements/ReferenceDocument": {
+    "apiResponse": {
+      "type": "S"
+    },
+    "DataElements": [
+      {
+        "publicId": "2192199",
+        "version": "1.0",
+        "longName": "Race Category Text",
+        "context": "NCIP",
+        "workflowStatus": "RELEASED"
+      },
+      {
+        "publicId": "5281240",
+        "version": "1.0",
+        "longName": "Person Race Reported Category",
+        "context": "PCORI",
+        "workflowStatus": "RELEASED"
+      }
+    ]
+  },
+  "/rad/NCIAPI/1.0/api/DataElements/Context": {
+    "apiResponse": {
+      "type": "S"
+    },
+    "DataElements": [
+      {
+        "publicId": "2192199",
+        "version": "1.0",
+        "longName": "Race Category Text",
+        "context": "NCIP",
+        "workflowStatus": "RELEASED"
+      },
+      {
+        "publicId": "2192217",
+        "version": "1.0",
+        "longName": "Ethnic Group Category Text",
+        "context": "NCIP",
+        "workflowStatus": "RELEASED"
+      }
+    ]
+  },
+  "/rad/NCIAPI/1.0/api/DataElements/getCRDCList": {
+    "apiResponse": {
+      "type": "S"
+    },
+    "CRDCDataElements": [
+      {
+        "DataElement": {
+          "publicId": "2192199",
+          "version": "1.0",
+          "longName": "Race Category Text"
+        },
+        "crdcName": "race",
+        "models": "GDC,CDS,ICDC"
+      },
+      {
+        "DataElement": {
+          "publicId": "2192217",
+          "version": "2.0",
+          "longName": "Ethnic Group Category Text"
+        },
+        "crdcName": "ethnicity",
+        "models": "GDC,CDS"
+      }
+    ]
+  },
+  "/rad/NCIFormAPI.v2_0:NciFormApiRad/Form/3105395": {
+    "apiResponse": {
+      "type": "S"
+    },
+    "Form": {
+      "publicId": "3105395",
+      "version": "1.0",
+      "longName": "Demographics Form",
+      "context": "NCIP",
+      "workflowStatus": "RELEASED",
+      "type": "CRF",
+      "protocol": {
+        "longName": "Protocol X"
+      },
+      "Modules": [
+        {
+          "publicId": "3105396",
+          "longName": "Demographics",
+          "displayOrder": 1,
+          "Questions": [
+            {
+              "publicId": "3105397",
+              "questionText": "Race",
+              "displayOrder": 1,
+              "DataElement": {
+                "publicId": "2192199",
+                "version": "1.0",
+                "longName": "Race Category Text"
+              },
+              "ValidValues": [
+                {
+                  "value": "White",
+                  "meaningText": "White",
+                  "displayOrder": 1
+                },
+                {
+                  "value": "Asian",
+                  "meaningText": "Asian",
+                  "displayOrder": 2
+                }
+              ]
+            },
+            {
+              "publicId": "3105398",
+              "questionText": "Ethnicity",
+              "displayOrder": 2,
+              "DataElement": {
+                "publicId": "2192217",
+                "version": "1.0",
+                "longName": "Ethnic Group Category Text"
+              },
+              "ValidValues": []
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "/rad/caDSR.restapi:GetJSON_rad/GetJSON": {
+    "Question": [
+      {
+        "publicId": "3105397",
+        "questionText": "Race",
+        "Module": {
+          "publicId": "3105396",
+          "longName": "Demographics",
+          "Form": {
+            "publicId": "3105395",
+            "version": "1.0",
+            "longName": "Demographics Form"
+          }
+        }
+      },
+      {
+        "publicId": "4000001",
+        "questionText": "Patient race",
+        "Module": {
+          "publicId": "4000000",
+          "Form": {
+            "publicId": "4000010",
+            "version": "2.0",
+            "longName": "Enrollment CRF"
+          }
+        }
+      }
+    ]
+  },
+  "/rad/vmMatch/v1/vmMatch": {
+    "results": [
+      {
+        "value": "White",
+        "matches": [
+          {
+            "valueMeaningPublicId": "2572236",
+            "longName": "White",
+            "conceptCode": "C41261",
+            "score": 1.0
+          }
+        ]
+      },
+      {
+        "value": "Caucasian",
+        "matches": [
+          {
+            "valueMeaningPublicId": "2572236",
+            "longName": "White",
+            "conceptCode": "C41261",
+            "score": 0.82
+          }
+        ]
+      }
+    ]
+  },
+  "/rad/NCIAPI.v2_0.cdeMatch.api:cdeMatch_rad/cdeMatch": {
+    "apiResponse": {
+      "type": "S"
+    },
+    "matchResults": {
+      "sequenceNumber": 1,
+      "entity": "race",
+      "numberOfMatches": 2,
+      "numberofPVs": 2,
+      "matches": [
+        {
+          "ruleId": 2,
+          "ruleDescription": "2. Question Text Exact Match (and PV Matched)",
+          "score": 0.97,
+          "publicId": "2192199",
+          "version": "1",
+          "longName": "RACE_CAT_TXT",
+          "matchedText": "Race",
+          "context": "NCIP",
+          "workflowStatus": "RELEASED",
+          "numberOfPVsInSource": 2,
+          "numberOfPVsInCDE": 8,
+          "numberOfPVsMatch": 2
+        },
+        {
+          "ruleId": 5,
+          "ruleDescription": "5. Long Name Partial Match",
+          "score": 0.8,
+          "publicId": "6424122",
+          "version": "1",
+          "longName": "Person Race Category Text",
+          "matchedText": "Race",
+          "context": "NCIP",
+          "workflowStatus": "RELEASED"
+        }
+      ]
+    }
+  },
+  "/rad/NCIAPI/1.0/api/DataElements/Concept?conceptCode=C17649": {
+    "apiResponse": {
+      "type": "S"
+    },
+    "DataElements": [
+      {
+        "publicId": "2192199",
+        "version": "1.0",
+        "longName": "Race Category Text",
+        "context": "NCIP",
+        "workflowStatus": "RELEASED"
+      }
+    ]
+  },
+  "/rad/NCIAPI/1.0/api/DataElements/Concept?conceptCode=C17049&itemTypeFilter=ObjectClass": {
+    "apiResponse": {
+      "type": "S"
+    },
+    "DataElements": []
+  },
+  "/rad/NCIAPI/1.0/api/DataElements/Concept?conceptCode=C3224": {
+    "apiResponse": {
+      "type": "S"
+    },
+    "DataElements": [
+      {
+        "publicId": "3000001",
+        "version": "1.0",
+        "longName": "Melanoma Diagnosis Indicator",
+        "context": "NCIP",
+        "workflowStatus": "RELEASED"
+      }
+    ]
+  },
+  "/rad/NCIAPI/1.0/api/DataElements/Concept?conceptCode=C3510": {
+    "apiResponse": {
+      "type": "S"
+    },
+    "DataElements": [
+      {
+        "publicId": "3000002",
+        "version": "1.0",
+        "longName": "Cutaneous Melanoma Site Text",
+        "context": "CTEP",
+        "workflowStatus": "RELEASED"
+      }
+    ]
+  },
+  "/rad/NCILovAPI/1.0/api/getContextNames": {
+    "apiResponse": {
+      "type": "S"
+    },
+    "contextNames": [
+      "NCIP",
+      "CTEP"
+    ]
+  }
+}
