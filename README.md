@@ -208,7 +208,8 @@ Prompts: `resolve_term_with_provenance`, `walk_to_root`, `expand_value_set`, `ma
   then an append-only audit record (free-text parameters hashed) and Prometheus metrics at
   `/metrics`. The FastAPI host enforces Host and Origin allow-lists (421) and a 4 MiB body cap
   (counted as the body streams in). It refuses to serve HTTP on a non-loopback address without
-  JWT auth unless `ECM_ALLOW_UNAUTHENTICATED=true`; `/metrics` and detailed `/readyz` need
+  JWT auth unless `ECM_ALLOW_UNAUTHENTICATED=true`, or `ECM_AUTH_MODE=databricks` inside a
+  Databricks App ([`app.yaml`](app.yaml), whose proxy authenticates callers); `/metrics` and detailed `/readyz` need
   `ECM_ADMIN_TOKEN` off loopback. See [SECURITY.md](SECURITY.md).
   A Redis-compatible shared cache tier (`ECM_CACHE_URL`) sits behind the in-process tier;
   credentialed and negative results never reach it. See `docs/deployment.md` and `docs/runbook.md`.

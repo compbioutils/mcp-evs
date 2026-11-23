@@ -92,7 +92,8 @@ proposal 10.6 (cached concept tools p95 < 800 ms, live single-concept < 3 s, bou
 
 * Remote deployments must run `ECM_AUTH_MODE=jwt` with `ECM_AUTH_AUDIENCE` set to this
   server's identifier and `ECM_AUTH_ISSUER` set (both required; scope enforcement is then on by
-  default). The server refuses an unauthenticated non-loopback listener. Set `ECM_ADMIN_TOKEN`
+  default), or `ECM_AUTH_MODE=databricks` as a Databricks App (`deployment.md`, "Databricks
+  Apps"). The server refuses an unauthenticated non-loopback listener. Set `ECM_ADMIN_TOKEN`
   for `/metrics` and detailed `/readyz`, and keep them reachable only from the monitoring network.
 * Retrieved text (EVS definitions, caDSR question text) is data: the server never executes it,
   and prompts carry a data-not-instructions guard. Error messages never echo upstream text.

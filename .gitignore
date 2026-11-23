@@ -37,3 +37,5 @@ id_ed25519*
 secrets/
 # AWS CDK output can embed account details
 deploy/cdk/cdk.out/
+# Databricks CLI sync/bundle state (workspace paths and snapshots)
+.databricks/

@@ -1,0 +1,25 @@
+# Databricks Apps configuration: https://docs.databricks.com/aws/en/dev-tools/databricks-apps/app-runtime
+# Without this file Databricks runs the first root-level .py file in alphabetical order, a helper
+# script that exits at once. Deployment and auth notes are in deployment.md, "Databricks Apps".
+#
+# Databricks installs dependencies with `uv sync` from pyproject.toml and uv.lock. Don't add a
+# requirements.txt: it takes precedence and switches the install to pip.
+command: ["uv", "run", "--frozen", "evs-cadsr-mcp", "serve", "--transport", "http"]
+
+env:
+  # Trust the Databricks Apps proxy as the authenticating gateway. Fails closed unless the platform
+  # injects DATABRICKS_HOST, DATABRICKS_CLIENT_ID and DATABRICKS_CLIENT_SECRET (the app's service
+  # principal). Binds 0.0.0.0:$DATABRICKS_APP_PORT and serves stateless MCP at /mcp.
+  - name: ECM_AUTH_MODE
+    value: "databricks"
+  - name: ECM_PROFILE
+    value: "evs-only"
+  - name: ECM_LOG_JSON
+    value: "true"
+  # Profiles with caDSR read credentials from an app secret resource, never from a literal value:
+  # - name: ECM_CADSR_CREDENTIAL
+  #   valueFrom: "cadsr-credential"
+
+health_check:
+  path: "/healthz"
+  timeout_seconds: 120

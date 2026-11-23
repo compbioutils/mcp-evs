@@ -54,8 +54,9 @@ its marker. Skills in [.github/skills/](.github/skills/) cover adding a tool and
 - Secrets are `SecretStr` settings, sent only where needed, never logged, cached or put in
   provenance URIs. Real values live in `.env` (git-ignored) or a secrets manager.
 - Logs go to stderr: stdout is the MCP stream in stdio mode. Don't `print` in server code.
-- Don't weaken the startup checks: HTTP off loopback needs JWT auth, JWT needs issuer and
-  audience. See [SECURITY.md](SECURITY.md).
+- Don't weaken the startup checks: HTTP off loopback needs JWT auth (or `ECM_AUTH_MODE=databricks`,
+  which needs the Databricks App's injected service principal), and JWT needs issuer and audience.
+  See [SECURITY.md](SECURITY.md).
 - After changing dependencies: `uv lock`, then regenerate `deploy/requirements.lock` (command in
   `deploy/Dockerfile`). CI checks both are in sync.
 
