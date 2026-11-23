@@ -1,4 +1,4 @@
-# evs-cadsr-mcp (prototype, first pass)
+# evs-cadsr-mcp 
 
 <!-- mcp-name: io.github.compbioutils/evs-cadsr-mcp -->
 
