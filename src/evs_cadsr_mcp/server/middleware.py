@@ -23,7 +23,6 @@ import structlog
 from ..core.audit import AuditRecord, AuditSink, now_iso, redact
 from ..core.auth import Principal, current_principal, profile_scopes, required_scopes
 from ..core.config import Settings
-from ..core.databricks import request_principal
 from ..core.errors import EvsMcpError
 from ..core.metrics import METRICS
 from ..core.ratelimit import RateLimiter
@@ -59,12 +58,6 @@ class PlatformMiddleware(_Base):  # type: ignore[misc]
         self.allowed = profile_scopes(settings.profile)
 
     # ------------------------------------------------------------- helpers
-    def _principal(self) -> Principal:
-        """The verified token's principal, or in a Databricks App the caller its proxy authenticated."""
-        if self.settings.auth_mode == "databricks":
-            return request_principal(self.allowed)
-        return current_principal()
-
     def _correlation_id(self, context: Any) -> str:
         meta = None
         msg = getattr(context, "message", None)
@@ -134,7 +127,7 @@ class PlatformMiddleware(_Base):  # type: ignore[misc]
         holder: dict[str, Any] = {}
         otoken = LAST_OUTCOME.set(holder)
         started = time.perf_counter()
-        principal = self._principal()
+        principal = current_principal()
         error: EvsMcpError | None = None
         try:
             try:

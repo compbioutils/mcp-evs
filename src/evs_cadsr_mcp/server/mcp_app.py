@@ -24,7 +24,6 @@ from ..core.audit import AuditSink, build_sink
 from ..core.auth import build_auth_provider
 from ..core.cache import ReleaseCache
 from ..core.config import Settings, _secret, get_settings
-from ..core.databricks import ServicePrincipal
 from ..core.http_client import ResilientClient
 from ..core.release import ReleaseRegistry
 from ..core.shared_cache import TieredCache, build_shared_cache
@@ -83,11 +82,10 @@ class Services:
     ai_http: ResilientClient | None = None
     map: MapService | None = None
     audit_sink: AuditSink | None = None
-    databricks: ServicePrincipal | None = None  # the Databricks App's own identity (auth_mode=databricks)
 
     async def aclose(self) -> None:
         await self.http.aclose()
-        for c in (self.cadsr_http, self.ai_http, self.databricks):
+        for c in (self.cadsr_http, self.ai_http):
             if c is not None:
                 await c.aclose()
         await self.cache.aclose()
@@ -115,7 +113,6 @@ def build_services(
     *,
     transport: httpx.AsyncBaseTransport | None = None,
     cadsr_transport: httpx.AsyncBaseTransport | None = None,
-    databricks_transport: httpx.AsyncBaseTransport | None = None,
 ) -> Services:
     settings = settings or get_settings()
     http = ResilientClient(settings, base_url=settings.evs_base_url, transport=transport)
@@ -138,8 +135,6 @@ def build_services(
     registry = ReleaseRegistry(settings, http)
     evs_client = EvsClient(settings, http, cache, registry)
     services = Services(settings=settings, http=http, cache=cache, registry=registry, evs=EvsService(settings, evs_client))
-    if settings.auth_mode == "databricks":
-        services.databricks = ServicePrincipal(settings, transport=databricks_transport)
     if settings.profile in ("cadsr-only", "unified"):
         # caDSR: 45 s deadline, retries on connection errors and 5xx only (not 429, which caDSR does not emit)
         services.cadsr_http = ResilientClient(settings, base_url=settings.cadsr_base_url, transport=cadsr_transport,

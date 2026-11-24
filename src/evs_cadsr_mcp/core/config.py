@@ -6,7 +6,6 @@ import ipaddress
 import os
 from functools import lru_cache
 from typing import Literal
-from urllib.parse import urlsplit
 
 from pydantic import Field, SecretStr, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -15,25 +14,19 @@ Profile = Literal["evs-only", "cadsr-only", "unified"]
 
 
 class Settings(BaseSettings):
-    # validate_by_name lets tests pass the Databricks fields by name; the environment uses their aliases.
-    model_config = SettingsConfigDict(env_prefix="ECM_", env_file=".env", extra="ignore",
-                                      validate_by_name=True, validate_by_alias=True)
+    model_config = SettingsConfigDict(env_prefix="ECM_", env_file=".env", extra="ignore")
 
     # Deployment
     profile: Profile = "evs-only"
     public_host: str = "localhost"
     allowed_origins: list[str] = Field(default_factory=lambda: ["http://localhost", "http://127.0.0.1"])
     http_host: str = "127.0.0.1"
-    # Without ECM_HTTP_PORT, a platform-injected DATABRICKS_APP_PORT or PORT (cloud.gov, Code Engine) is used.
-    http_port: int = 8000
+    http_port: int = 8000  # without ECM_HTTP_PORT, a platform-injected PORT (cloud.gov, Code Engine) is used
     mcp_path: str = "/mcp"
-    # Stateless Streamable HTTP: no mcp-session-id, so any replica can serve any request. On by default
-    # with ECM_AUTH_MODE=databricks, whose clients (e.g. the Databricks Assistant) don't send a session id.
-    http_stateless: bool = False
 
     # Upstreams
     evs_base_url: str = "https://api-evsrest.nci.nih.gov/api/v1"
-    evs_user_agent: str = "evs-cadsr-mcp/0.1 (+https://github.com/compbioutils)"
+    evs_user_agent: str = "evs-cadsr-mcp/0.1 (+https://github.com/CBIIT)"
 
     # caDSR II (proposal Section 2.1 / 7.1). There is no single "caDSR API v2": the data-element
     # API is NCI API 1.0; Form API and CDE Match are 2.0. Paths are relative to cadsr_base_url.
@@ -98,9 +91,8 @@ class Settings(BaseSettings):
     log_level: str = "INFO"
     log_json: bool = False
 
-    # Security (Section 10.4). Remote deployments run as an OAuth 2.1 resource server ("jwt"), or as a
-    # Databricks App ("databricks"), whose proxy authenticates every caller before the request arrives.
-    auth_mode: Literal["none", "jwt", "databricks"] = "none"
+    # Security (Section 10.4). Remote deployments run as an OAuth 2.1 resource server.
+    auth_mode: Literal["none", "jwt"] = "none"
     auth_jwks_uri: str | None = None  # identity provider JWKS endpoint
     auth_issuer: str | None = None
     auth_audience: str | None = None  # this server's resource identifier; tokens for other servers are rejected
@@ -113,14 +105,6 @@ class Settings(BaseSettings):
     allow_unauthenticated: bool = False
     # Bearer token for /metrics and detailed /readyz. Without it they are served only on a loopback bind.
     admin_token: SecretStr | None = None
-
-    # Databricks Apps (auth_mode=databricks). The platform injects these unprefixed variables; the
-    # client id and secret are the OAuth M2M credentials of the app's own service principal.
-    databricks_host: str | None = Field(default=None, validation_alias="DATABRICKS_HOST")
-    databricks_client_id: str | None = Field(default=None, validation_alias="DATABRICKS_CLIENT_ID")
-    databricks_client_secret: SecretStr | None = Field(default=None, validation_alias="DATABRICKS_CLIENT_SECRET")
-    databricks_app_name: str | None = Field(default=None, validation_alias="DATABRICKS_APP_NAME")
-    databricks_app_url: str | None = Field(default=None, validation_alias="DATABRICKS_APP_URL")
 
     # Rate limiting (per client id, token bucket)
     rate_limit_per_minute: int = 0  # 0 disables
@@ -145,43 +129,13 @@ class Settings(BaseSettings):
 
     @model_validator(mode="after")
     def _platform_port(self) -> Settings:
-        # A platform port sets only the port. The bind address stays ECM_HTTP_HOST (127.0.0.1 by default),
-        # so a stray PORT never exposes the server; platforms set ECM_HTTP_HOST=0.0.0.0 plus auth explicitly.
-        for name in ("DATABRICKS_APP_PORT", "PORT"):
-            platform = os.environ.get(name, "").strip()
-            if platform and "http_port" not in self.model_fields_set:
-                if not platform.isdigit() or not 0 < int(platform) < 65536:
-                    raise ValueError(f"{name} must be a TCP port number, got {platform!r}")
-                self.http_port = int(platform)
-                break
-        return self
-
-    @model_validator(mode="after")
-    def _databricks_app(self) -> Settings:
-        """Databricks Apps mode fails closed without the app's service principal, then applies the
-        platform's requirements: listen on 0.0.0.0, stateless MCP, and the app URL as a trusted origin."""
-        if self.auth_mode != "databricks":
-            return self
-        missing = [name for name, value in (("DATABRICKS_HOST", self.databricks_host),
-                                            ("DATABRICKS_CLIENT_ID", self.databricks_client_id),
-                                            ("DATABRICKS_CLIENT_SECRET", _secret(self.databricks_client_secret)))
-                   if not (value or "").strip()]
-        if missing:
-            raise ValueError(f"ECM_AUTH_MODE=databricks runs only as a Databricks App, which injects {', '.join(missing)} "
-                             "(the app's service principal); use ECM_AUTH_MODE=jwt elsewhere")
-        self.databricks_host = _https_origin(self.databricks_host, "DATABRICKS_HOST", default_scheme=True)
-        self.databricks_client_id = self.databricks_client_id.strip()
-        app_origin = _https_origin(self.databricks_app_url, "DATABRICKS_APP_URL") if self.databricks_app_url else None
-        if "http_host" not in self.model_fields_set:
-            self.http_host = "0.0.0.0"  # the Databricks Apps proxy reaches the app on 0.0.0.0:DATABRICKS_APP_PORT
-        if "http_stateless" not in self.model_fields_set:
-            self.http_stateless = True
-        if "trusted_hosts" not in self.model_fields_set:
-            # The proxy is the only ingress and routes only this app's hostname, and the Host it forwards
-            # is not documented; the Origin allow-list below still guards browser requests.
-            self.trusted_hosts = ["*"]
-        if app_origin and "allowed_origins" not in self.model_fields_set:
-            self.allowed_origins = list(dict.fromkeys([*self.allowed_origins, app_origin, self.databricks_host]))
+        # PORT sets only the port. The bind address stays ECM_HTTP_HOST (127.0.0.1 by default), so a
+        # stray PORT never exposes the server; platforms set ECM_HTTP_HOST=0.0.0.0 plus auth explicitly.
+        platform = os.environ.get("PORT", "").strip()
+        if platform and "http_port" not in self.model_fields_set:
+            if not platform.isdigit() or not 0 < int(platform) < 65536:
+                raise ValueError(f"PORT must be a TCP port number, got {platform!r}")
+            self.http_port = int(platform)
         return self
 
     @model_validator(mode="after")
@@ -208,8 +162,8 @@ class Settings(BaseSettings):
         if self.auth_mode == "none" and not self.binds_loopback() and not self.allow_unauthenticated:
             raise RuntimeError(
                 f"refusing to serve {self.mcp_path} on {self.http_host} without authentication: set ECM_AUTH_MODE=jwt "
-                "(with ECM_AUTH_JWKS_URI, ECM_AUTH_ISSUER and ECM_AUTH_AUDIENCE), ECM_AUTH_MODE=databricks inside a "
-                "Databricks App, bind to 127.0.0.1, or set ECM_ALLOW_UNAUTHENTICATED=true behind a trusted gateway"
+                "(with ECM_AUTH_JWKS_URI, ECM_AUTH_ISSUER and ECM_AUTH_AUDIENCE), bind to 127.0.0.1, or set "
+                "ECM_ALLOW_UNAUTHENTICATED=true behind a trusted gateway"
             )
 
     @model_validator(mode="after")
@@ -239,22 +193,6 @@ def _secret(value: SecretStr | str | None) -> str:
     if isinstance(value, SecretStr):
         return value.get_secret_value()
     return value or ""
-
-
-def _https_origin(value: str, name: str, *, default_scheme: bool = False) -> str:
-    """``https://host[:port]`` from a platform URL; anything with a path, query or credentials is refused,
-    because the result is used to build upstream URLs and origin allow-list entries."""
-    raw = value.strip().rstrip("/")
-    if default_scheme and "://" not in raw:
-        raw = f"https://{raw}"
-    parts = urlsplit(raw)
-    try:
-        port = parts.port
-    except ValueError as exc:
-        raise ValueError(f"{name} has an invalid port: {value!r}") from exc
-    if parts.scheme != "https" or not parts.hostname or parts.path or parts.query or parts.fragment or "@" in parts.netloc:
-        raise ValueError(f"{name} must be an https:// URL with no path, got {value!r}")
-    return f"https://{parts.hostname}" + (f":{port}" if port else "")
 
 
 @lru_cache(maxsize=1)

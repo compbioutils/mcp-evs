@@ -84,9 +84,8 @@ def current_principal() -> Principal:
 
 
 def build_auth_provider(settings: Settings) -> Any | None:
-    """Construct FastMCP's JWT verifier from settings, or None in trusted-local mode and in a
-    Databricks App (whose proxy authenticates callers; see ``core/databricks.py``)."""
-    if settings.auth_mode in ("none", "databricks"):
+    """Construct FastMCP's JWT verifier from settings, or None in trusted-local mode."""
+    if settings.auth_mode == "none":
         return None
     if not (settings.auth_jwks_uri or settings.auth_public_key):
         raise RuntimeError("ECM_AUTH_MODE=jwt needs ECM_AUTH_JWKS_URI or ECM_AUTH_PUBLIC_KEY")
