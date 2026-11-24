@@ -10,8 +10,6 @@ This report brings together every check run on the server, so it can be submitte
 evidence of completion. It follows the [acceptance report template](../acceptance-report-template.md).
 All raw results are in this directory (see [Evidence](#evidence)).
 
-
-
 ## Summary
 
 | Check | Result |
@@ -67,8 +65,6 @@ checks content, not just success. Its own logic has offline tests in
 `tests/unit/test_use_cases.py`. These include a test that every documented step is a valid call
 to this server, so the document can't drift from the tool schemas unnoticed.
 
-
-
 ## Results by tier
 
 | Tier | Tests | Failures | Errors | Skipped | Notes |
@@ -84,8 +80,6 @@ to this server, so the document can't drift from the tool schemas unnoticed.
 The live tiers ran with a writable ICD-O cache (`ECM_ICDO_CACHE_DIR`). A first live run used
 the default cache, which the evaluation sandbox doesn't allow writing to. One test then
 failed with `internal_error` (finding F5), and passed once the cache was writable.
-
-
 
 ## SOW capability sign-off
 

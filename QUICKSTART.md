@@ -73,7 +73,7 @@ Try these. Each should come back with an NCIt code and the release it came from.
 - "Which drugs target EGFR L858R?" → osimertinib, lazertinib and 15 more
 - "Which of C3224, C28327 and C9324 are retired, and what replaced them?"
 
-More worked examples are in [docs/evs-mcp-use-cases.md](docs/evs-mcp-use-cases.md) and
+More worked examples are in [docs/evs mcp use cases.md](docs/evs%20mcp%20use%20cases.md) and
 [docs/tools/](docs/tools/).
 
 ## 5. caDSR tools (optional)
@@ -81,7 +81,7 @@ More worked examples are in [docs/evs-mcp-use-cases.md](docs/evs-mcp-use-cases.m
 The `cadsr_*` and `map_*` tools need `ECM_PROFILE=unified`. Some also need caDSR credentials
 (`ECM_CADSR_USERNAME` and `ECM_CADSR_PASSWORD` in `.env`, never in tracked files). Use the caDSR
 stage environment for testing. Worked examples of mapping between NCIt and caDSR are in
-[docs/evs-cadsr-mapping-use-cases.md](docs/evs-cadsr-mapping-use-cases.md).
+[docs/tools/map-tools.md](docs/tools/map-tools.md).
 
 ## Troubleshooting
 
