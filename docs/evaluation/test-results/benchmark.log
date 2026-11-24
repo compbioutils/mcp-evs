@@ -1,0 +1,24 @@
+2026-11-23 20:24:06 [info     ] release.refresh                live=['26.10d', '26.09d', '26.08e'] terminology=ncit
+# Benchmark (fixtures; ncit 26.10d; repeat=3)
+
+| scenario | cache | p50 ms | p95 ms | outbound calls | result bytes | errors |
+|---|---|---|---|---|---|---|
+| evs_get_concept (summary) | cold | 2 | 2 | 1 | 1446 | 0/1 |
+| evs_get_concept (summary) | warm | 0 | 0 | 0 | 1489 | 0/3 |
+| evs_get_concepts (batch of 2) | cold | 1 | 1 | 1 | 2192 | 0/1 |
+| evs_get_concepts (batch of 2) | warm | 1 | 1 | 0 | 2235 | 0/3 |
+| evs_search_concepts (10) | cold | 1 | 1 | 1 | 1367 | 0/1 |
+| evs_search_concepts (10) | warm | 0 | 0 | 0 | 1410 | 0/3 |
+| evs_traverse (depth 2) | cold | 2 | 2 | 3 | 6985 | 0/1 |
+| evs_traverse (depth 2) | warm | 2 | 2 | 0 | 7112 | 0/3 |
+| evs_get_paths (toRoot) | cold | 0 | 0 | 1 | 1313 | 0/1 |
+| evs_get_paths (toRoot) | warm | 0 | 0 | 0 | 1356 | 0/3 |
+| cadsr_get_data_element (2192199) | cold | 1 | 1 | 1 | 2646 | 0/1 |
+| cadsr_get_data_element (2192199) | warm | 1 | 1 | 0 | 2645 | 0/3 |
+| cadsr_get_permissible_values | cold | 1 | 1 | 0 | 3412 | 0/1 |
+| cadsr_get_permissible_values | warm | 1 | 1 | 0 | 3412 | 0/3 |
+| map_resolve_cde_concepts (+PVs) | cold | 8 | 8 | 1 | 4408 | 0/1 |
+| map_resolve_cde_concepts (+PVs) | warm | 2 | 4 | 0 | 4451 | 0/3 |
+
+SLOs (proposal 10.6): cached concept tools p95 < 800 ms; live single-concept < 3 s; bounded traversal at default budgets < 10 s. The 'demonstrated-versus-upstream-gap' column is the difference between cold and warm rows.
+

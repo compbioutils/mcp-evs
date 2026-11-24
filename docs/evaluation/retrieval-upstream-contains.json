@@ -1,0 +1,1905 @@
+{
+  "summary": {
+    "evalSet": "ncit-retrieval-eval-v1.jsonl",
+    "retriever": "upstream_contains",
+    "mode": "live",
+    "release": "26.10d",
+    "queries": 67,
+    "positives": 63,
+    "negatives": 4,
+    "recall@5": 0.6667,
+    "recall@10": 0.6667,
+    "mrr@10": 0.6341,
+    "ndcg@10": 0.6412,
+    "negativeHitRate": 1.0,
+    "latencyP50Ms": 67.7,
+    "latencyP95Ms": 130.4,
+    "errors": 0,
+    "categories": {
+      "anatomy": {
+        "n": 5,
+        "recall@5": 0.8,
+        "recall@10": 0.8,
+        "mrr@10": 0.8,
+        "ndcg@10": 0.8
+      },
+      "cde_derived": {
+        "n": 6,
+        "recall@5": 0.1667,
+        "recall@10": 0.1667,
+        "mrr@10": 0.0417,
+        "ndcg@10": 0.0718
+      },
+      "concept_name": {
+        "n": 15,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr@10": 1.0,
+        "ndcg@10": 1.0
+      },
+      "definition_style": {
+        "n": 5,
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr@10": 0.0,
+        "ndcg@10": 0.0
+      },
+      "drug": {
+        "n": 3,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr@10": 1.0,
+        "ndcg@10": 1.0
+      },
+      "finding": {
+        "n": 4,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr@10": 1.0,
+        "ndcg@10": 1.0
+      },
+      "gene": {
+        "n": 4,
+        "recall@5": 0.75,
+        "recall@10": 0.75,
+        "mrr@10": 0.75,
+        "ndcg@10": 0.75
+      },
+      "icdo_morphology": {
+        "n": 5,
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr@10": 0.0,
+        "ndcg@10": 0.0
+      },
+      "icdo_topography": {
+        "n": 2,
+        "recall@5": 0.0,
+        "recall@10": 0.0,
+        "mrr@10": 0.0,
+        "ndcg@10": 0.0
+      },
+      "lay_language": {
+        "n": 4,
+        "recall@5": 0.5,
+        "recall@10": 0.5,
+        "mrr@10": 0.5,
+        "ndcg@10": 0.4876
+      },
+      "synonym_abbreviation": {
+        "n": 10,
+        "recall@5": 1.0,
+        "recall@10": 1.0,
+        "mrr@10": 0.87,
+        "ndcg@10": 0.9018
+      }
+    }
+  },
+  "queries": [
+    {
+      "id": "concept_name-001",
+      "category": "concept_name",
+      "query": "Melanoma",
+      "expected": [
+        "C3224"
+      ],
+      "ranked": [
+        "C3224",
+        "C91477",
+        "C21790",
+        "C103113",
+        "C157920",
+        "C1830",
+        "C2517",
+        "C46091",
+        "C36873",
+        "C156749"
+      ],
+      "latencyMs": 61.2,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "negativeHit": null
+    },
+    {
+      "id": "concept_name-002",
+      "category": "concept_name",
+      "query": "Lung Non-Small Cell Carcinoma",
+      "expected": [
+        "C2926"
+      ],
+      "ranked": [
+        "C2926",
+        "C118814",
+        "C153081",
+        "C155901",
+        "C156094",
+        "C162158",
+        "C165767",
+        "C227378",
+        "C7783",
+        "C9038"
+      ],
+      "latencyMs": 90.7,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "negativeHit": null
+    },
+    {
+      "id": "concept_name-003",
+      "category": "concept_name",
+      "query": "Breast Carcinoma",
+      "expected": [
+        "C4872"
+      ],
+      "ranked": [
+        "C4872",
+        "C147915",
+        "C2918",
+        "C118809",
+        "C137674",
+        "C147965",
+        "C153238",
+        "C158752",
+        "C162648",
+        "C162782"
+      ],
+      "latencyMs": 88.0,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "negativeHit": null
+    },
+    {
+      "id": "concept_name-004",
+      "category": "concept_name",
+      "query": "Multiple Myeloma",
+      "expected": [
+        "C3242"
+      ],
+      "ranked": [
+        "C3242",
+        "C157927",
+        "C225397",
+        "C7025",
+        "C7024",
+        "C70606",
+        "C70607",
+        "C70608",
+        "C70609",
+        "C7149"
+      ],
+      "latencyMs": 62.7,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "negativeHit": null
+    },
+    {
+      "id": "concept_name-005",
+      "category": "concept_name",
+      "query": "Glioblastoma",
+      "expected": [
+        "C3058"
+      ],
+      "ranked": [
+        "C3058",
+        "C5136",
+        "C9094",
+        "C21938",
+        "C39750",
+        "C91479",
+        "C4642",
+        "C5129",
+        "C5150",
+        "C5151"
+      ],
+      "latencyMs": 62.8,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "negativeHit": null
+    },
+    {
+      "id": "concept_name-006",
+      "category": "concept_name",
+      "query": "Colorectal Carcinoma",
+      "expected": [
+        "C2955"
+      ],
+      "ranked": [
+        "C2955",
+        "C118808",
+        "C147982",
+        "C162256",
+        "C162257",
+        "C162475",
+        "C162600",
+        "C185165",
+        "C212894",
+        "C227152"
+      ],
+      "latencyMs": 77.5,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "negativeHit": null
+    },
+    {
+      "id": "concept_name-007",
+      "category": "concept_name",
+      "query": "Prostate Carcinoma",
+      "expected": [
+        "C4863"
+      ],
+      "ranked": [
+        "C4863",
+        "C8946",
+        "C103817",
+        "C167255",
+        "C171265",
+        "C171611",
+        "C176517",
+        "C48596",
+        "C7902",
+        "C128122"
+      ],
+      "latencyMs": 71.3,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "negativeHit": null
+    },
+    {
+      "id": "concept_name-008",
+      "category": "concept_name",
+      "query": "Acute Myeloid Leukemia",
+      "expected": [
+        "C3171"
+      ],
+      "ranked": [
+        "C3171",
+        "C91526",
+        "C103124",
+        "C9154",
+        "C9160",
+        "C134319",
+        "C148427",
+        "C25765",
+        "C3249",
+        "C3250"
+      ],
+      "latencyMs": 73.8,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "negativeHit": null
+    },
+    {
+      "id": "concept_name-009",
+      "category": "concept_name",
+      "query": "Hodgkin Lymphoma",
+      "expected": [
+        "C9357"
+      ],
+      "ranked": [
+        "C9357",
+        "C7702",
+        "C7714",
+        "C103135",
+        "C181832",
+        "C7295",
+        "C172373",
+        "C173356",
+        "C173361",
+        "C173578"
+      ],
+      "latencyMs": 71.4,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "negativeHit": null
+    },
+    {
+      "id": "concept_name-010",
+      "category": "concept_name",
+      "query": "Pancreatic Adenocarcinoma",
+      "expected": [
+        "C8294"
+      ],
+      "ranked": [
+        "C8294",
+        "C155742",
+        "C156906",
+        "C162015",
+        "C162016",
+        "C162153",
+        "C8933",
+        "C169041",
+        "C156269",
+        "C168583"
+      ],
+      "latencyMs": 89.9,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "negativeHit": null
+    },
+    {
+      "id": "concept_name-011",
+      "category": "concept_name",
+      "query": "Hepatocellular Carcinoma",
+      "expected": [
+        "C3099"
+      ],
+      "ranked": [
+        "C3099",
+        "C60416",
+        "C38756",
+        "C9264",
+        "C124251",
+        "C154091",
+        "C162450",
+        "C167336",
+        "C172709",
+        "C172714"
+      ],
+      "latencyMs": 64.9,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "negativeHit": null
+    },
+    {
+      "id": "concept_name-012",
+      "category": "concept_name",
+      "query": "Renal Cell Carcinoma",
+      "expected": [
+        "C9385"
+      ],
+      "ranked": [
+        "C9385",
+        "C91501",
+        "C103084",
+        "C27893",
+        "C4146",
+        "C7825",
+        "C126303",
+        "C150595",
+        "C153170",
+        "C154545"
+      ],
+      "latencyMs": 79.8,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "negativeHit": null
+    },
+    {
+      "id": "concept_name-013",
+      "category": "concept_name",
+      "query": "Ovarian Carcinoma",
+      "expected": [
+        "C4908"
+      ],
+      "ranked": [
+        "C4908",
+        "C150091",
+        "C165458",
+        "C167073",
+        "C210814",
+        "C36102",
+        "C7833",
+        "C156064",
+        "C147561",
+        "C148024"
+      ],
+      "latencyMs": 69.2,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "negativeHit": null
+    },
+    {
+      "id": "concept_name-014",
+      "category": "concept_name",
+      "query": "Neuroblastoma",
+      "expected": [
+        "C3270"
+      ],
+      "ranked": [
+        "C3270",
+        "C124270",
+        "C21993",
+        "C103053",
+        "C33961",
+        "C207079",
+        "C5155",
+        "C6628",
+        "C6956",
+        "C17791"
+      ],
+      "latencyMs": 59.0,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "negativeHit": null
+    },
+    {
+      "id": "concept_name-015",
+      "category": "concept_name",
+      "query": "Osteosarcoma",
+      "expected": [
+        "C9145"
+      ],
+      "ranked": [
+        "C9145",
+        "C6585",
+        "C24021",
+        "C60487",
+        "C103039",
+        "C7780",
+        "C7781",
+        "C7881",
+        "C8810",
+        "C53707"
+      ],
+      "latencyMs": 66.4,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "negativeHit": null
+    },
+    {
+      "id": "synonym_abbreviation-001",
+      "category": "synonym_abbreviation",
+      "query": "NSCLC",
+      "expected": [
+        "C2926"
+      ],
+      "ranked": [
+        "C2926",
+        "C155628",
+        "C164230",
+        "C176206",
+        "C176207",
+        "C176208",
+        "C176209",
+        "C176210",
+        "C155621",
+        "C155625"
+      ],
+      "latencyMs": 61.8,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "negativeHit": null
+    },
+    {
+      "id": "synonym_abbreviation-002",
+      "category": "synonym_abbreviation",
+      "query": "AML",
+      "expected": [
+        "C3171"
+      ],
+      "ranked": [
+        "C3171",
+        "C168939",
+        "C173250",
+        "C173251",
+        "C182031",
+        "C182032",
+        "C168549",
+        "C173192",
+        "C173206",
+        "C173209"
+      ],
+      "latencyMs": 85.8,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "negativeHit": null
+    },
+    {
+      "id": "synonym_abbreviation-003",
+      "category": "synonym_abbreviation",
+      "query": "GBM",
+      "expected": [
+        "C3058"
+      ],
+      "ranked": [
+        "C3058",
+        "C32683",
+        "C172199",
+        "C154285",
+        "C179670",
+        "C139000",
+        "C91479",
+        "C209569",
+        "C5129",
+        "C129293"
+      ],
+      "latencyMs": 61.8,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "negativeHit": null
+    },
+    {
+      "id": "synonym_abbreviation-004",
+      "category": "synonym_abbreviation",
+      "query": "HCC",
+      "expected": [
+        "C3099"
+      ],
+      "ranked": [
+        "C105624",
+        "C3099",
+        "C36077",
+        "C117160",
+        "C75501",
+        "C75503",
+        "C75504",
+        "C104900",
+        "C135424",
+        "C153434"
+      ],
+      "latencyMs": 55.8,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 0.5,
+      "ndcg@10": 0.6309297535714575,
+      "negativeHit": null
+    },
+    {
+      "id": "synonym_abbreviation-005",
+      "category": "synonym_abbreviation",
+      "query": "CLL",
+      "expected": [
+        "C3163"
+      ],
+      "ranked": [
+        "C3163",
+        "C214984",
+        "C118852",
+        "C125994",
+        "C28707",
+        "C125995",
+        "C126029",
+        "C118851",
+        "C132330",
+        "C178055"
+      ],
+      "latencyMs": 56.3,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "negativeHit": null
+    },
+    {
+      "id": "synonym_abbreviation-006",
+      "category": "synonym_abbreviation",
+      "query": "DLBCL",
+      "expected": [
+        "C8851"
+      ],
+      "ranked": [
+        "C8851",
+        "C148392",
+        "C45231",
+        "C36080",
+        "C36081",
+        "C80289",
+        "C138320",
+        "C148394",
+        "C148395",
+        "C148396"
+      ],
+      "latencyMs": 62.1,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "negativeHit": null
+    },
+    {
+      "id": "synonym_abbreviation-007",
+      "category": "synonym_abbreviation",
+      "query": "RCC",
+      "expected": [
+        "C9385"
+      ],
+      "ranked": [
+        "C210065",
+        "C21565",
+        "C51012",
+        "C82596",
+        "C9385",
+        "C118500",
+        "C178664",
+        "C157344",
+        "C204946",
+        "C51540"
+      ],
+      "latencyMs": 63.3,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 0.2,
+      "ndcg@10": 0.38685280723454163,
+      "negativeHit": null
+    },
+    {
+      "id": "synonym_abbreviation-008",
+      "category": "synonym_abbreviation",
+      "query": "Ewing sarcoma",
+      "expected": [
+        "C4817"
+      ],
+      "ranked": [
+        "C4817",
+        "C103038",
+        "C189002",
+        "C4835",
+        "C132849",
+        "C142853",
+        "C159208",
+        "C172634",
+        "C173175",
+        "C174456"
+      ],
+      "latencyMs": 63.6,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "negativeHit": null
+    },
+    {
+      "id": "synonym_abbreviation-009",
+      "category": "synonym_abbreviation",
+      "query": "Wilms tumor",
+      "expected": [
+        "C3267"
+      ],
+      "ranked": [
+        "C3267",
+        "C40407",
+        "C27730",
+        "C103086",
+        "C17549",
+        "C161607",
+        "C162489",
+        "C188038",
+        "C229081",
+        "C40236"
+      ],
+      "latencyMs": 62.6,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "negativeHit": null
+    },
+    {
+      "id": "synonym_abbreviation-010",
+      "category": "synonym_abbreviation",
+      "query": "Kaposi sarcoma",
+      "expected": [
+        "C9087"
+      ],
+      "ranked": [
+        "C9087",
+        "C9112",
+        "C156474",
+        "C156475",
+        "C156476",
+        "C181938",
+        "C188980",
+        "C3550",
+        "C3551",
+        "C35873"
+      ],
+      "latencyMs": 65.9,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "negativeHit": null
+    },
+    {
+      "id": "definition_style-001",
+      "category": "definition_style",
+      "query": "cancer that starts in the plasma cells of bone marrow",
+      "expected": [
+        "C3242"
+      ],
+      "ranked": [
+        "C36236",
+        "C36237",
+        "C38649",
+        "C138182",
+        "C138322",
+        "C142107",
+        "C147583",
+        "C150421",
+        "C150709",
+        "C150710"
+      ],
+      "latencyMs": 100.4,
+      "error": null,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr@10": 0.0,
+      "ndcg@10": 0.0,
+      "negativeHit": null
+    },
+    {
+      "id": "definition_style-002",
+      "category": "definition_style",
+      "query": "malignant tumor composed of atypical melanocytes",
+      "expected": [
+        "C3224"
+      ],
+      "ranked": [
+        "C121933",
+        "C146848",
+        "C155978",
+        "C156362",
+        "C167346",
+        "C172624",
+        "C172625",
+        "C176981",
+        "C179362",
+        "C180540"
+      ],
+      "latencyMs": 104.3,
+      "error": null,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr@10": 0.0,
+      "ndcg@10": 0.0,
+      "negativeHit": null
+    },
+    {
+      "id": "definition_style-003",
+      "category": "definition_style",
+      "query": "aggressive brain tumor arising from astrocytes, WHO grade IV",
+      "expected": [
+        "C3058"
+      ],
+      "ranked": [
+        "C102897",
+        "C114961",
+        "C114962",
+        "C124790",
+        "C177567",
+        "C100519",
+        "C100927",
+        "C103031",
+        "C103043",
+        "C104011"
+      ],
+      "latencyMs": 105.1,
+      "error": null,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr@10": 0.0,
+      "ndcg@10": 0.0,
+      "negativeHit": null
+    },
+    {
+      "id": "definition_style-004",
+      "category": "definition_style",
+      "query": "leukemia with rapid accumulation of immature myeloid cells in the bone marrow",
+      "expected": [
+        "C3171"
+      ],
+      "ranked": [
+        "C36237",
+        "C43220",
+        "C168679",
+        "C36236",
+        "C41061",
+        "C42776",
+        "C165754",
+        "C184765",
+        "C193908",
+        "C203559"
+      ],
+      "latencyMs": 130.4,
+      "error": null,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr@10": 0.0,
+      "ndcg@10": 0.0,
+      "negativeHit": null
+    },
+    {
+      "id": "definition_style-005",
+      "category": "definition_style",
+      "query": "malignant epithelial tumor with glandular differentiation",
+      "expected": [
+        "C2852"
+      ],
+      "ranked": [
+        "C92647",
+        "C157714",
+        "C158620",
+        "C162724",
+        "C162725",
+        "C172625",
+        "C177900",
+        "C178523",
+        "C180542",
+        "C187096"
+      ],
+      "latencyMs": 91.5,
+      "error": null,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr@10": 0.0,
+      "ndcg@10": 0.0,
+      "negativeHit": null
+    },
+    {
+      "id": "lay_language-001",
+      "category": "lay_language",
+      "query": "lung cancer",
+      "expected": [
+        "C4878",
+        "C7377"
+      ],
+      "ranked": [
+        "C4878",
+        "C7377",
+        "C157912",
+        "C176948",
+        "C15558",
+        "C15575",
+        "C60974",
+        "C60978",
+        "C178262",
+        "C136430"
+      ],
+      "latencyMs": 75.3,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "negativeHit": null
+    },
+    {
+      "id": "lay_language-002",
+      "category": "lay_language",
+      "query": "breast cancer",
+      "expected": [
+        "C4872",
+        "C9335"
+      ],
+      "ranked": [
+        "C4872",
+        "C118809",
+        "C9335",
+        "C12959",
+        "C142819",
+        "C15546",
+        "C15553",
+        "C16052",
+        "C180561",
+        "C18662"
+      ],
+      "latencyMs": 69.6,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 0.9502344167898356,
+      "negativeHit": null
+    },
+    {
+      "id": "lay_language-003",
+      "category": "lay_language",
+      "query": "blood cancer",
+      "expected": [
+        "C3161",
+        "C9300"
+      ],
+      "ranked": [
+        "C116915",
+        "C164030",
+        "C164015",
+        "C164031",
+        "C164017",
+        "C213608",
+        "C228977",
+        "C7340",
+        "C7390",
+        "C101773"
+      ],
+      "latencyMs": 92.1,
+      "error": null,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr@10": 0.0,
+      "ndcg@10": 0.0,
+      "negativeHit": null
+    },
+    {
+      "id": "lay_language-004",
+      "category": "lay_language",
+      "query": "brain tumor",
+      "expected": [
+        "C3568",
+        "C9375"
+      ],
+      "ranked": [
+        "C2907",
+        "C157800",
+        "C157801",
+        "C214497",
+        "C157811",
+        "C167291",
+        "C192780",
+        "C39309",
+        "C39465",
+        "C19959"
+      ],
+      "latencyMs": 64.1,
+      "error": null,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr@10": 0.0,
+      "ndcg@10": 0.0,
+      "negativeHit": null
+    },
+    {
+      "id": "icdo_morphology-001",
+      "category": "icdo_morphology",
+      "query": "8140/3",
+      "expected": [
+        "C2852"
+      ],
+      "ranked": [
+        "C100043",
+        "C100114",
+        "C100135",
+        "C100136",
+        "C100180",
+        "C100183",
+        "C100194",
+        "C100218",
+        "C100250",
+        "C100253"
+      ],
+      "latencyMs": 64.7,
+      "error": null,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr@10": 0.0,
+      "ndcg@10": 0.0,
+      "negativeHit": null
+    },
+    {
+      "id": "icdo_morphology-002",
+      "category": "icdo_morphology",
+      "query": "8720/3",
+      "expected": [
+        "C3224"
+      ],
+      "ranked": [
+        "C100043",
+        "C100114",
+        "C100135",
+        "C100136",
+        "C100180",
+        "C100183",
+        "C100194",
+        "C100218",
+        "C100250",
+        "C100253"
+      ],
+      "latencyMs": 66.2,
+      "error": null,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr@10": 0.0,
+      "ndcg@10": 0.0,
+      "negativeHit": null
+    },
+    {
+      "id": "icdo_morphology-003",
+      "category": "icdo_morphology",
+      "query": "9440/3",
+      "expected": [
+        "C3058"
+      ],
+      "ranked": [
+        "C100043",
+        "C100114",
+        "C100135",
+        "C100136",
+        "C100180",
+        "C100183",
+        "C100194",
+        "C100218",
+        "C100250",
+        "C100253"
+      ],
+      "latencyMs": 63.3,
+      "error": null,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr@10": 0.0,
+      "ndcg@10": 0.0,
+      "negativeHit": null
+    },
+    {
+      "id": "icdo_morphology-004",
+      "category": "icdo_morphology",
+      "query": "8070/3",
+      "expected": [
+        "C2929"
+      ],
+      "ranked": [
+        "C100043",
+        "C100114",
+        "C100135",
+        "C100136",
+        "C100180",
+        "C100183",
+        "C100194",
+        "C100218",
+        "C100250",
+        "C100253"
+      ],
+      "latencyMs": 66.6,
+      "error": null,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr@10": 0.0,
+      "ndcg@10": 0.0,
+      "negativeHit": null
+    },
+    {
+      "id": "icdo_morphology-005",
+      "category": "icdo_morphology",
+      "query": "9861/3",
+      "expected": [
+        "C3171"
+      ],
+      "ranked": [
+        "C100043",
+        "C100114",
+        "C100135",
+        "C100136",
+        "C100180",
+        "C100183",
+        "C100194",
+        "C100218",
+        "C100250",
+        "C100253"
+      ],
+      "latencyMs": 65.2,
+      "error": null,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr@10": 0.0,
+      "ndcg@10": 0.0,
+      "negativeHit": null
+    },
+    {
+      "id": "icdo_topography-001",
+      "category": "icdo_topography",
+      "query": "C34.1",
+      "expected": [
+        "C12248"
+      ],
+      "ranked": [
+        "C100000",
+        "C100002",
+        "C100041",
+        "C100088",
+        "C100089",
+        "C100127",
+        "C100137",
+        "C100138",
+        "C100178",
+        "C100181"
+      ],
+      "latencyMs": 73.9,
+      "error": null,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr@10": 0.0,
+      "ndcg@10": 0.0,
+      "negativeHit": null
+    },
+    {
+      "id": "icdo_topography-002",
+      "category": "icdo_topography",
+      "query": "C50.9",
+      "expected": [
+        "C12971"
+      ],
+      "ranked": [
+        "C100189",
+        "C100200",
+        "C100224",
+        "C100259",
+        "C101904",
+        "C101921",
+        "C101938",
+        "C101955",
+        "C101972",
+        "C101989"
+      ],
+      "latencyMs": 63.2,
+      "error": null,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr@10": 0.0,
+      "ndcg@10": 0.0,
+      "negativeHit": null
+    },
+    {
+      "id": "cde_derived-001",
+      "category": "cde_derived",
+      "query": "tumor_grade: the degree of abnormality of cancer cells, a measure of differentiation and aggressiveness",
+      "expected": [
+        "C18000"
+      ],
+      "ranked": [
+        "C103069",
+        "C203559",
+        "C136663",
+        "C136682",
+        "C136732",
+        "C157440",
+        "C157442",
+        "C160692",
+        "C161653",
+        "C161654"
+      ],
+      "latencyMs": 140.1,
+      "error": null,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr@10": 0.0,
+      "ndcg@10": 0.0,
+      "negativeHit": null
+    },
+    {
+      "id": "cde_derived-002",
+      "category": "cde_derived",
+      "query": "race: an arbitrary classification of a taxonomic group that is a division of a species",
+      "expected": [
+        "C17049"
+      ],
+      "ranked": [
+        "C131887",
+        "C160256",
+        "C105224",
+        "C106718",
+        "C107041",
+        "C111399",
+        "C111437",
+        "C111469",
+        "C111536",
+        "C112964"
+      ],
+      "latencyMs": 198.6,
+      "error": null,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr@10": 0.0,
+      "ndcg@10": 0.0,
+      "negativeHit": null
+    },
+    {
+      "id": "cde_derived-003",
+      "category": "cde_derived",
+      "query": "ethnicity: hispanic or latino",
+      "expected": [
+        "C17459"
+      ],
+      "ranked": [
+        "C165013",
+        "C165014",
+        "C107609",
+        "C17459",
+        "C41222",
+        "C160895",
+        "C164019",
+        "C164490",
+        "C164510",
+        "C18773"
+      ],
+      "latencyMs": 61.9,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 0.25,
+      "ndcg@10": 0.43067655807339306,
+      "negativeHit": null
+    },
+    {
+      "id": "cde_derived-004",
+      "category": "cde_derived",
+      "query": "vital_status: the survival state of the person",
+      "expected": [
+        "C25717"
+      ],
+      "ranked": [
+        "C100538",
+        "C130770",
+        "C130919",
+        "C139742",
+        "C158760",
+        "C16189",
+        "C182217",
+        "C211380",
+        "C211381",
+        "C227996"
+      ],
+      "latencyMs": 89.6,
+      "error": null,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr@10": 0.0,
+      "ndcg@10": 0.0,
+      "negativeHit": null
+    },
+    {
+      "id": "cde_derived-005",
+      "category": "cde_derived",
+      "query": "sex at birth: the biological sex assigned at birth",
+      "expected": [
+        "C28421"
+      ],
+      "ranked": [
+        "C205472",
+        "C206417",
+        "C209287",
+        "C124436",
+        "C205473",
+        "C205474",
+        "C103306",
+        "C103592",
+        "C123780",
+        "C124435"
+      ],
+      "latencyMs": 79.1,
+      "error": null,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr@10": 0.0,
+      "ndcg@10": 0.0,
+      "negativeHit": null
+    },
+    {
+      "id": "cde_derived-006",
+      "category": "cde_derived",
+      "query": "days to birth: number of days between index date and date of birth",
+      "expected": [
+        "C156420"
+      ],
+      "ranked": [
+        "C181067",
+        "C181056",
+        "C181057",
+        "C181059",
+        "C181060",
+        "C181061",
+        "C181062",
+        "C181063",
+        "C181064",
+        "C181065"
+      ],
+      "latencyMs": 145.2,
+      "error": null,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr@10": 0.0,
+      "ndcg@10": 0.0,
+      "negativeHit": null
+    },
+    {
+      "id": "anatomy-001",
+      "category": "anatomy",
+      "query": "Skin",
+      "expected": [
+        "C12470"
+      ],
+      "ranked": [
+        "C12470",
+        "C22535",
+        "C74580",
+        "C111987",
+        "C112110",
+        "C112114",
+        "C113681",
+        "C12842",
+        "C13022",
+        "C148064"
+      ],
+      "latencyMs": 67.7,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "negativeHit": null
+    },
+    {
+      "id": "anatomy-002",
+      "category": "anatomy",
+      "query": "Uvea",
+      "expected": [
+        "C12775"
+      ],
+      "ranked": [
+        "C12811",
+        "C215095",
+        "C174507",
+        "C215096",
+        "C215097",
+        "C88666",
+        "C88667",
+        "C88708",
+        "C88709",
+        "C88710"
+      ],
+      "latencyMs": 56.7,
+      "error": null,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr@10": 0.0,
+      "ndcg@10": 0.0,
+      "negativeHit": null
+    },
+    {
+      "id": "anatomy-003",
+      "category": "anatomy",
+      "query": "Pancreas",
+      "expected": [
+        "C12393"
+      ],
+      "ranked": [
+        "C12393",
+        "C24044",
+        "C60597",
+        "C15293",
+        "C13024",
+        "C143728",
+        "C192908",
+        "C57846",
+        "C57847",
+        "C32546"
+      ],
+      "latencyMs": 78.5,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "negativeHit": null
+    },
+    {
+      "id": "anatomy-004",
+      "category": "anatomy",
+      "query": "Liver",
+      "expected": [
+        "C12392"
+      ],
+      "ranked": [
+        "C12392",
+        "C73399",
+        "C22515",
+        "C60581",
+        "C138328",
+        "C141245",
+        "C15271",
+        "C159516",
+        "C168581",
+        "C17647"
+      ],
+      "latencyMs": 69.4,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "negativeHit": null
+    },
+    {
+      "id": "anatomy-005",
+      "category": "anatomy",
+      "query": "Lung",
+      "expected": [
+        "C12468"
+      ],
+      "ranked": [
+        "C12468",
+        "C212659",
+        "C22600",
+        "C60582",
+        "C13273",
+        "C133091",
+        "C142783",
+        "C142829",
+        "C15274",
+        "C159515"
+      ],
+      "latencyMs": 71.6,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "negativeHit": null
+    },
+    {
+      "id": "gene-001",
+      "category": "gene",
+      "query": "BRAF Gene",
+      "expected": [
+        "C17476"
+      ],
+      "ranked": [
+        "C18363",
+        "C133674",
+        "C154159",
+        "C40430",
+        "C148089",
+        "C160328",
+        "C180944",
+        "C200901",
+        "C212866",
+        "C156046"
+      ],
+      "latencyMs": 78.1,
+      "error": null,
+      "recall@5": 0.0,
+      "recall@10": 0.0,
+      "mrr@10": 0.0,
+      "ndcg@10": 0.0,
+      "negativeHit": null
+    },
+    {
+      "id": "gene-002",
+      "category": "gene",
+      "query": "TP53 Gene",
+      "expected": [
+        "C17359"
+      ],
+      "ranked": [
+        "C17359",
+        "C118396",
+        "C129622",
+        "C133694",
+        "C36329",
+        "C148092",
+        "C157565",
+        "C175688",
+        "C175693",
+        "C146676"
+      ],
+      "latencyMs": 83.3,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "negativeHit": null
+    },
+    {
+      "id": "gene-003",
+      "category": "gene",
+      "query": "KRAS Gene",
+      "expected": [
+        "C25785"
+      ],
+      "ranked": [
+        "C25785",
+        "C168523",
+        "C36665",
+        "C41361",
+        "C216211",
+        "C142879",
+        "C180939",
+        "C167101",
+        "C193898",
+        "C193894"
+      ],
+      "latencyMs": 82.2,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "negativeHit": null
+    },
+    {
+      "id": "gene-004",
+      "category": "gene",
+      "query": "EGFR Gene",
+      "expected": [
+        "C17757"
+      ],
+      "ranked": [
+        "C17757",
+        "C105526",
+        "C148095",
+        "C36649",
+        "C98357",
+        "C148091",
+        "C153561",
+        "C157585",
+        "C190823",
+        "C92172"
+      ],
+      "latencyMs": 83.5,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "negativeHit": null
+    },
+    {
+      "id": "drug-001",
+      "category": "drug",
+      "query": "Pembrolizumab",
+      "expected": [
+        "C106432"
+      ],
+      "ranked": [
+        "C106432",
+        "C160108",
+        "C221311",
+        "C157398",
+        "C216111",
+        "C200832",
+        "C216215",
+        "C227639",
+        "C210805",
+        "C162220"
+      ],
+      "latencyMs": 52.2,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "negativeHit": null
+    },
+    {
+      "id": "drug-002",
+      "category": "drug",
+      "query": "Imatinib",
+      "expected": [
+        "C62035"
+      ],
+      "ranked": [
+        "C62035",
+        "C160054",
+        "C1687",
+        "C186424",
+        "C210009",
+        "C37811",
+        "C229091",
+        "C11929",
+        "C186421",
+        "C186425"
+      ],
+      "latencyMs": 62.9,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "negativeHit": null
+    },
+    {
+      "id": "drug-003",
+      "category": "drug",
+      "query": "Cisplatin",
+      "expected": [
+        "C376"
+      ],
+      "ranked": [
+        "C376",
+        "C10228",
+        "C10653",
+        "C11117",
+        "C160011",
+        "C2502",
+        "C10172",
+        "C10236",
+        "C10263",
+        "C10264"
+      ],
+      "latencyMs": 62.2,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "negativeHit": null
+    },
+    {
+      "id": "finding-001",
+      "category": "finding",
+      "query": "Fatigue",
+      "expected": [
+        "C3036"
+      ],
+      "ranked": [
+        "C3036",
+        "C146753",
+        "C122347",
+        "C205978",
+        "C206052",
+        "C99776",
+        "C173347",
+        "C106621",
+        "C175266",
+        "C175268"
+      ],
+      "latencyMs": 65.6,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "negativeHit": null
+    },
+    {
+      "id": "finding-002",
+      "category": "finding",
+      "query": "Nausea",
+      "expected": [
+        "C3258"
+      ],
+      "ranked": [
+        "C3258",
+        "C157703",
+        "C205934",
+        "C141559",
+        "C206015",
+        "C146764",
+        "C220681",
+        "C57839",
+        "C141558",
+        "C91124"
+      ],
+      "latencyMs": 62.0,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "negativeHit": null
+    },
+    {
+      "id": "finding-003",
+      "category": "finding",
+      "query": "Fever",
+      "expected": [
+        "C3038"
+      ],
+      "ranked": [
+        "C3038",
+        "C143485",
+        "C26921",
+        "C34608",
+        "C55331",
+        "C115213",
+        "C154941",
+        "C128418",
+        "C173825",
+        "C220220"
+      ],
+      "latencyMs": 62.9,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "negativeHit": null
+    },
+    {
+      "id": "finding-004",
+      "category": "finding",
+      "query": "Hypertension",
+      "expected": [
+        "C3117"
+      ],
+      "ranked": [
+        "C3117",
+        "C55060",
+        "C212644",
+        "C221343",
+        "C168203",
+        "C160273",
+        "C160274",
+        "C160275",
+        "C160276",
+        "C211573"
+      ],
+      "latencyMs": 54.6,
+      "error": null,
+      "recall@5": 1.0,
+      "recall@10": 1.0,
+      "mrr@10": 1.0,
+      "ndcg@10": 1.0,
+      "negativeHit": null
+    },
+    {
+      "id": "negative-001",
+      "category": "negative",
+      "query": "quarterly budget variance",
+      "expected": [],
+      "ranked": [
+        "C127147",
+        "C132305",
+        "C151036",
+        "C151046",
+        "C151059",
+        "C151069",
+        "C164659",
+        "C164913",
+        "C19183",
+        "C19185"
+      ],
+      "latencyMs": 61.0,
+      "error": null,
+      "recall@5": null,
+      "recall@10": null,
+      "mrr@10": null,
+      "ndcg@10": null,
+      "negativeHit": true
+    },
+    {
+      "id": "negative-002",
+      "category": "negative",
+      "query": "kubernetes pod scheduling",
+      "expected": [],
+      "ranked": [
+        "C104787",
+        "C105690",
+        "C106447",
+        "C106449",
+        "C106450",
+        "C106471",
+        "C107524",
+        "C111309",
+        "C117298",
+        "C117700"
+      ],
+      "latencyMs": 60.9,
+      "error": null,
+      "recall@5": null,
+      "recall@10": null,
+      "mrr@10": null,
+      "ndcg@10": null,
+      "negativeHit": true
+    },
+    {
+      "id": "negative-003",
+      "category": "negative",
+      "query": "mortgage interest rate",
+      "expected": [],
+      "ranked": [
+        "C100096",
+        "C100449",
+        "C100450",
+        "C100534",
+        "C100674",
+        "C100679",
+        "C100680",
+        "C100681",
+        "C100761",
+        "C100765"
+      ],
+      "latencyMs": 73.9,
+      "error": null,
+      "recall@5": null,
+      "recall@10": null,
+      "mrr@10": null,
+      "ndcg@10": null,
+      "negativeHit": true
+    },
+    {
+      "id": "negative-004",
+      "category": "negative",
+      "query": "how to change a tire",
+      "expected": [],
+      "ranked": [
+        "C100693",
+        "C100742",
+        "C103257",
+        "C103714",
+        "C107254",
+        "C107403",
+        "C111015",
+        "C118606",
+        "C119111",
+        "C119112"
+      ],
+      "latencyMs": 121.4,
+      "error": null,
+      "recall@5": null,
+      "recall@10": null,
+      "mrr@10": null,
+      "ndcg@10": null,
+      "negativeHit": true
+    }
+  ]
+}

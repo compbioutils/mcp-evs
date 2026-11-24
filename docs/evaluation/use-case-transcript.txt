@@ -1,0 +1,257 @@
+Isolated stdio server from this checkout; ICD-O-3.1 files: ok
+Releases discovered: {"ncit": "26.10d", "previous": "26.09d", "ctcae5": "5.0", "ctcae6": "6.0"}
+
+==============================================================================
+EVS-01 Cohort and eligibility expansion
+
+[PASS] EVS-01.lookup  evs_lookup_concept  (0.193 s)
+  arguments: {"identifier": "Ewing sarcoma", "release": "26.10d"}
+  result: [{"concept": {"code": "C4817", "name": "Ewing Sarcoma", "terminology": "ncit", "release": "26.10d", "active": true, "conceptStatus": "DEFAULT", "leaf": false, "semanticTypes": ["Neoplastic Process"], "synonyms": [{"name": "Ewing Sarcoma", "termType": "PT", "source": "Cellosaurus", "code": null, "subSource": null}, {"name": "Ewing Sarcoma", "termType": "PT", "source": "CPTAC", "code": null, "subSou ...
+
+[PASS] EVS-01.descendants  evs_get_descendants  (0.116 s)
+  arguments: {"code": "C4817", "limit": 500, "release": "26.10d"}
+  result: [{"code": "C213627", "name": "Adamantinoma-Like Ewing Sarcoma", "terminology": null, "release": "26.10d", "leaf": false, "level": 2}, {"code": "C174456", "name": "Atypical Ewing Sarcoma", "terminology": null, "release": "26.10d", "leaf": true, "level": 1}, {"code": "C4835", "name": "Bone Ewing Sarcoma", "terminology": null, "release": "26.10d", "leaf": false, "level": 1}, {"code": "C186611", "name ...
+
+[PASS] EVS-01.bounded-walk  evs_traverse  (0.292 s)
+  arguments: {"start": ["C4817"], "selectors": [{"kind": "children"}], "budget": {"maxDepth": 2, "maxNodes": 100}, "release": "26.10d"}
+  note: A depth-bounded walk must say it stopped early rather than look complete.
+  result: {"start": ["C4817"], "nodes": [{"code": "C4817", "name": "Ewing Sarcoma", "depth": 0, "leaf": false, "expanded": true, "active": true}, {"code": "C174456", "name": "Atypical Ewing Sarcoma", "depth": 1, "leaf": true, "expanded": true, "active": true}, {"code": "C4835", "name": "Bone Ewing Sarcoma", "depth": 1, "leaf": false, "expanded": true, "active": true}, {"code": "C189002", "name": "Childhood  ...
+
+[PASS] EVS-01.exclusions  evs_get_relationships  (0.112 s)
+  arguments: {"code": "C4817", "kinds": ["roles"], "release": "26.10d"}
+  result: [{"kind": "role", "type": "Disease_May_Have_Associated_Disease", "code": "C2869", "name": "Anemia", "direction": "outgoing", "polarity": "positive", "qualifiers": null, "leaf": null}, {"kind": "role", "type": "Disease_Excludes_Finding", "code": "C36122", "name": "Benign Cellular Infiltrate", "direction": "outgoing", "polarity": "negative", "qualifiers": null, "leaf": null}, {"kind": "role", "type" ...
+
+==============================================================================
+EVS-02 Standards value sets: CDISC Sex
+
+[PASS] EVS-02.members  evs_get_subset_members  (0.248 s)
+  arguments: {"code": "C66731", "limit": 50, "release": "26.10d"}
+  result: [{"code": "C16576", "name": "Female", "terminology": "ncit", "release": "26.10d", "active": true, "conceptStatus": "DEFAULT", "leaf": false, "semanticTypes": [], "synonyms": null, "definitions": null, "properties": null, "parents": null, "children": null, "roles": null, "inverseRoles": null, "associations": null, "inverseAssociations": null, "disjointWith": null, "maps": null, "mapsWithheld": null ...
+
+[PASS] EVS-02.describe  evs_list_subsets  (0.198 s)
+  arguments: {"code": "C66731", "release": "26.10d"}
+  result: [{"code": "C66731", "name": "CDISC SDTM Sex of Individual Terminology", "terminology": "ncit", "release": "26.10d", "children": null, "memberCount": null, "properties": null}]
+
+[PASS] EVS-02.member-details  evs_get_concepts  (0.231 s)
+  arguments: {"include": ["synonyms"], "release": "26.10d", "codes": ["C16576", "C45908", "C20197", "C17998"]}
+  result: {"concepts": [{"code": "C16576", "name": "Female", "terminology": "ncit", "release": "26.10d", "active": true, "conceptStatus": "DEFAULT", "leaf": false, "semanticTypes": [], "synonyms": [{"name": "Female", "termType": "SY", "source": "caDSR", "code": null, "subSource": null}, {"name": "F", "termType": "PT", "source": "CDISC", "code": "SDTM-SEX", "subSource": null}, {"name": "F", "termType": "PT", ...
+
+[PASS] EVS-02.submission-value  evs_search_concepts  (0.207 s)
+  arguments: {"term": "F", "type": "match", "subset": "C66731", "synonymSource": "CDISC", "limit": 10, "release": "26.10d"}
+  result: [{"concept": {"code": "C16576", "name": "Female", "terminology": "ncit", "release": "26.10d", "active": true, "conceptStatus": "DEFAULT", "leaf": false, "semanticTypes": [], "synonyms": null, "definitions": null, "properties": null, "parents": null, "children": null, "roles": null, "inverseRoles": null, "associations": null, "inverseAssociations": null, "disjointWith": null, "maps": null, "mapsWit ...
+
+==============================================================================
+EVS-03 Cross-terminology coding
+
+[PASS] EVS-03.icdo-property  evs_find_concepts  (0.107 s)
+  arguments: {"criteria": [{"kind": "property", "name": "ICD-O-3_Code", "value": "8140/3"}], "release": "26.10d"}
+  result: {"concepts": [{"code": "C2852", "name": "Adenocarcinoma", "terminology": "ncit", "release": "26.10d", "leaf": false, "level": null}], "plan": {"combinator": "AND", "path": "single_route", "steps": [{"criterion": {"kind": "property", "name": "ICD-O-3_Code", "value": "8140/3", "targetCode": null, "searchType": null}, "route": "search", "endpoint": "https://api-evsrest.nci.nih.gov/api/v1/concept/ncit ...
+
+[PASS] EVS-03.icdo-mapping-file  map_map_icdo_to_ncit  (0.182 s)
+  arguments: {"icdoCode": "8140/3", "release": "26.10d"}
+  result: [{"icdoCode": "8140/3", "icdoTerm": "Adenocarcinoma, NOS", "icdoTermType": "PT", "icdoVersions": ["3.1"], "ncimCui": "C0001418", "axis": "morphology", "concept": {"code": "C2852", "name": "Adenocarcinoma", "terminology": null, "release": "26.10d", "leaf": null, "level": null}, "ncitName": "Adenocarcinoma", "conceptStatusAtRelease": "active", "matchedVia": "ICD-O code", "group": null, "release": "2 ...
+
+[PASS] EVS-03.melanoma-maps  evs_get_concept_maps  (0.135 s)
+  arguments: {"code": "C3224", "release": "26.10d"}
+  note: MedDRA targets are withheld without ECM_LICENSE_KEY (license gate).
+  result: {"code": "C3224", "maps": [{"type": "Related To", "sourceCode": null, "sourceName": null, "sourceTerminology": null, "targetCode": "morphology", "targetName": "8720/3", "targetTermType": "PT", "targetTerminology": "GDC", "targetTerminologyVersion": null, "group": null, "rank": null}, {"type": "Related To", "sourceCode": null, "sourceName": null, "sourceTerminology": null, "targetCode": "8720/3", " ...
+
+[PASS] EVS-03.cutaneous-maps  evs_get_concept_maps  (0.154 s)
+  arguments: {"code": "C3510", "release": "26.10d"}
+  result: {"code": "C3510", "maps": [{"type": "Broader Than", "sourceCode": null, "sourceName": null, "sourceTerminology": null, "targetCode": "C43.72", "targetName": "Malignant melanoma of left lower limb, including hip", "targetTermType": "PT", "targetTerminology": "ICD10CM 2017", "targetTerminologyVersion": null, "group": null, "rank": null}, {"type": "Broader Than", "sourceCode": null, "sourceName": nul ...
+
+[KNOWN_ISSUE] EVS-03.cutaneous-icd10cm-filter  evs_get_concept_maps  (0.041 s)
+  arguments: {"code": "C3510", "targetTerminology": "ICD10CM", "release": "26.10d"}
+  knownIssue: targetTerminology is compared exactly, but EVS labels these concept maps 'ICD10CM 2017', so the documented filter value ICD10CM returns no maps.
+  - no targetCode ['C43.9'] in result
+  result: {"code": "C3510", "maps": [], "withheld": []}
+
+[PASS] EVS-03.mapsets  evs_list_mapsets  (0.145 s)
+  arguments: {}
+  result: [{"code": "SNOMEDCT_US_2026_03_01_to_ICD10CM_2026_Mappings", "name": "SNOMEDCT_US_2026_03_01 to ICD10CM_2026 Mappings", "version": "2026_03_01", "sourceTerminology": "snomedct_us", "targetTerminology": "icd10cm", "sourceTerminologyVersion": "2026_03_01", "targetTerminologyVersion": "2026", "downloadOnly": false, "licenseRequired": false, "properties": [{"type": "date", "value": "2026-03-01", "sour ...
+
+[PASS] EVS-03.icd10cm-entries  evs_get_mapset_entries  (0.199 s)
+  arguments: {"mapset": "NCIt_Maps_To_ICD10CM", "term": "melanoma", "limit": 100}
+  result: {"mapset": {"code": "NCIt_Maps_To_ICD10CM", "name": "NCIt_Maps_To_ICD10CM", "version": "26.10d", "sourceTerminology": "ncit", "targetTerminology": "icd10cm", "sourceTerminologyVersion": "26.10d", "targetTerminologyVersion": "2026", "downloadOnly": false, "licenseRequired": false, "properties": [{"type": "date", "value": "2026-10-26", "source": null, "qualifiers": null}, {"type": "downloadOnly", "v ...
+
+==============================================================================
+EVS-04 Grounded terminology Q&A
+
+[PASS] EVS-04.lookup  evs_lookup_concept  (0.179 s)
+  arguments: {"identifier": "NSCLC", "release": "26.10d"}
+  result: [{"concept": {"code": "C2926", "name": "Lung Non-Small Cell Carcinoma", "terminology": "ncit", "release": "26.10d", "active": true, "conceptStatus": "DEFAULT", "leaf": false, "semanticTypes": ["Neoplastic Process"], "synonyms": [{"name": "Lung Non-Small Cell Carcinoma", "termType": "PT", "source": "Cellosaurus", "code": null, "subSource": null}, {"name": "Lung Non-Small Cell Carcinoma", "termType" ...
+
+[PASS] EVS-04.definition  evs_get_concept  (0.192 s)
+  arguments: {"code": "C2926", "include": ["definitions", "synonyms"], "release": "26.10d"}
+  result: {"code": "C2926", "name": "Lung Non-Small Cell Carcinoma", "terminology": "ncit", "release": "26.10d", "active": true, "conceptStatus": "DEFAULT", "leaf": false, "semanticTypes": [], "synonyms": [{"name": "Lung Non-Small Cell Carcinoma", "termType": "PT", "source": "Cellosaurus", "code": null, "subSource": null}, {"name": "Lung Non-Small Cell Carcinoma", "termType": "PT", "source": "CPTAC", "code" ...
+
+[PASS] EVS-04.parents  evs_get_hierarchy_neighbors  (0.092 s)
+  arguments: {"direction": "parents", "code": "C2926", "release": "26.10d"}
+  result: [{"kind": "parent", "type": null, "code": "C4878", "name": "Lung Carcinoma", "direction": "incoming", "polarity": "positive", "qualifiers": null, "leaf": null}, {"kind": "parent", "type": null, "code": "C65151", "name": "Non-Small Cell Carcinoma", "direction": "incoming", "polarity": "positive", "qualifiers": null, "leaf": null}]
+
+[PASS] EVS-04.paths  evs_get_paths  (0.323 s)
+  arguments: {"code": "C2926", "release": "26.10d"}
+  result: [{"direction": "toRoot", "concepts": [{"code": "C2926", "name": "Lung Non-Small Cell Carcinoma", "terminology": "ncit", "release": "26.10d", "leaf": false, "level": 0}, {"code": "C4878", "name": "Lung Carcinoma", "terminology": "ncit", "release": "26.10d", "leaf": false, "level": 1}, {"code": "C7377", "name": "Malignant Lung Neoplasm", "terminology": "ncit", "release": "26.10d", "leaf": false, "le ...
+
+[PASS] EVS-04.findings  evs_get_relationships  (0.091 s)
+  arguments: {"code": "C3224", "kinds": ["roles"], "release": "26.10d"}
+  result: [{"kind": "role", "type": "Disease_Excludes_Finding", "code": "C36122", "name": "Benign Cellular Infiltrate", "direction": "outgoing", "polarity": "negative", "qualifiers": null, "leaf": null}, {"kind": "role", "type": "Disease_May_Have_Finding", "code": "C43268", "name": "HMB-45-Positive Neoplastic Cells Present", "direction": "outgoing", "polarity": "positive", "qualifiers": null, "leaf": null}, ...
+
+[PASS] EVS-04.reverse-finding  evs_find_concepts  (0.618 s)
+  arguments: {"criteria": [{"kind": "role", "name": "Disease_Has_Finding", "targetCode": "C36115"}], "limit": 5, "release": "26.10d"}
+  result: {"concepts": [{"code": "C2852", "name": "Adenocarcinoma", "terminology": null, "release": "26.10d", "leaf": null, "level": null}, {"code": "C2853", "name": "Papillary Adenocarcinoma", "terminology": null, "release": "26.10d", "leaf": null, "level": null}, {"code": "C2862", "name": "Primary Myelofibrosis", "terminology": null, "release": "26.10d", "leaf": null, "level": null}, {"code": "C2872", "na ...
+
+==============================================================================
+EVS-05 Release-change remediation
+
+[PASS] EVS-05.releases  evs_list_releases  (0.034 s)
+  arguments: {}
+  result: [{"terminology": "ncit", "version": "26.11c", "terminologyVersion": "ncit_26.11c", "date": "2026-11-16", "monthly": false, "weekly": true, "latest": true, "live": true, "indexed": false, "active": false}, {"terminology": "ncit", "version": "26.10d", "terminologyVersion": "ncit_26.10d", "date": "2026-10-26", "monthly": true, "weekly": false, "latest": true, "live": true, "indexed": false, "active": ...
+
+[PASS] EVS-05.batch  evs_get_concepts  (0.183 s)
+  arguments: {"codes": ["C3224", "C2926", "C28327", "C7681", "C9324", "C99999999"], "include": ["minimal"], "release": "26.10d"}
+  result: {"concepts": [{"code": "C3224", "name": "Melanoma", "terminology": "ncit", "release": "26.10d", "active": true, "conceptStatus": "DEFAULT", "leaf": false, "semanticTypes": [], "synonyms": null, "definitions": null, "properties": null, "parents": null, "children": null, "roles": null, "inverseRoles": null, "associations": null, "inverseAssociations": null, "disjointWith": null, "maps": null, "mapsW ...
+
+[PASS] EVS-05.history  evs_get_concept_history  (0.169 s)
+  arguments: {"code": "C28327", "release": "26.10d"}
+  result: [{"code": "C28327", "name": null, "action": "create", "date": "2003-08-12", "replacementCode": null, "replacementName": null}, {"code": "C28327", "name": null, "action": "modify", "date": "2003-10-31", "replacementCode": null, "replacementName": null}, {"code": "C28327", "name": null, "action": "modify", "date": "2003-12-30", "replacementCode": null, "replacementName": null}, {"code": "C28327", "n ...
+
+[PASS] EVS-05.earlier-release  evs_get_concepts  (0.19 s)
+  arguments: {"codes": ["C3224", "C2926"], "release": "26.09d"}
+  result: {"concepts": [{"code": "C3224", "name": "Melanoma", "terminology": "ncit", "release": "26.09d", "active": true, "conceptStatus": "DEFAULT", "leaf": false, "semanticTypes": ["Neoplastic Process"], "synonyms": [{"name": "Melanoma", "termType": "SY", "source": "caDSR", "code": null, "subSource": null}, {"name": "Malignant Melanoma", "termType": "SY", "source": "CDISC", "code": null, "subSource": null ...
+
+[KNOWN_ISSUE] EVS-05.impact  map_assess_release_impact  (0.191 s)
+  arguments: {"fromRelease": "26.09d", "conceptCodes": ["C3224", "C2926", "C28327"], "lookupDataElements": false}
+  knownIssue: Codes already retired in fromRelease are reported as changes between the two releases: C28327 was merged in 2021 but appears as 'merged' for the previous-to-current comparison.
+  - conceptCode ['C28327'] present in result
+  result: {"fromRelease": "26.09d", "toRelease": "26.10d", "scope": {"conceptCodes": ["C3224", "C2926", "C28327"]}, "impacts": [{"conceptCode": "C28327", "conceptName": "Endocervical Carcinoma", "change": "merged", "replacement": {"code": "C4029", "name": "Cervical Adenocarcinoma", "terminology": null, "release": "26.10d", "leaf": null, "level": null}, "dataElements": []}], "checked": 3}
+
+[PASS] EVS-05.unknown-code  evs_get_concept  (0.054 s)
+  arguments: {"code": "C99999999", "release": "26.10d"}
+  result: {"error": {"code": "not_found", "message": "concept C99999999 not found in ncit 26.10d", "details": {"code": "C99999999", "release": "26.10d"}, "retryable": false, "hint": "Check the identifier. For an NCIt code that may be retired, call evs_get_concept_history; to find a concept by name, use evs_lookup_concept or evs_search_concepts.", "correlationId": "1fb0d61d4984416bac80253421f04fd7"}}
+
+[PASS] EVS-05.withdrawn-release  evs_get_concept  (0.004 s)
+  arguments: {"code": "C3224", "release": "25.01d"}
+  note: Release pinning fails closed: no silent fallback to current content.
+  result: {"error": {"code": "release_not_available", "message": "release '25.01d' of ncit is not served live by EVS (only the most recent releases are available)", "details": {"terminology": "ncit", "live": ["26.10d", "26.09d", "26.11c", "26.08e"]}, "retryable": false, "hint": "Pass one of details.live as `release`, or omit `release` for the active release. Older releases can't be queried live.", "correlat ...
+
+==============================================================================
+EVS-06 Drug and intervention normalization
+
+[PASS] EVS-06.brand  evs_lookup_concept  (0.315 s)
+  arguments: {"identifier": "Tagrisso", "release": "26.10d"}
+  note: The brand name is a synonym of the salt, Osimertinib Mesylate.
+  result: [{"concept": {"code": "C170266", "name": "Osimertinib Mesylate", "terminology": "ncit", "release": "26.10d", "active": true, "conceptStatus": "DEFAULT", "leaf": true, "semanticTypes": ["Pharmacologic Substance"], "synonyms": [{"name": "Osimertinib Mesylate", "termType": "DN", "source": "CTRP", "code": null, "subSource": null}, {"name": "OSIMERTINIB MESYLATE", "termType": "PT", "source": "FDA", "co ...
+
+[PASS] EVS-06.code-name  evs_lookup_concept  (0.174 s)
+  arguments: {"identifier": "AZD9291", "release": "26.10d"}
+  result: [{"concept": {"code": "C116377", "name": "Osimertinib", "terminology": "ncit", "release": "26.10d", "active": true, "conceptStatus": "DEFAULT", "leaf": true, "semanticTypes": ["Pharmacologic Substance"], "synonyms": [{"name": "Osimertinib", "termType": "DN", "source": "CTRP", "code": null, "subSource": null}, {"name": "OSIMERTINIB", "termType": "PT", "source": "FDA", "code": "3C06JJ0Z2O", "subSour ...
+
+[PASS] EVS-06.generic  evs_lookup_concept  (0.18 s)
+  arguments: {"identifier": "osimertinib", "release": "26.10d"}
+  result: [{"concept": {"code": "C116377", "name": "Osimertinib", "terminology": "ncit", "release": "26.10d", "active": true, "conceptStatus": "DEFAULT", "leaf": true, "semanticTypes": ["Pharmacologic Substance"], "synonyms": [{"name": "Osimertinib", "termType": "DN", "source": "CTRP", "code": null, "subSource": null}, {"name": "OSIMERTINIB", "termType": "PT", "source": "FDA", "code": "3C06JJ0Z2O", "subSour ...
+
+[PASS] EVS-06.salt-to-ingredient  evs_get_relationships  (0.09 s)
+  arguments: {"code": "C170266", "kinds": ["associations"], "names": ["Has_Free_Acid_Or_Base_Form"], "release": "26.10d"}
+  result: [{"kind": "association", "type": "Has_Free_Acid_Or_Base_Form", "code": "C116377", "name": "Osimertinib", "direction": "outgoing", "polarity": "positive", "qualifiers": null, "leaf": null}]
+
+[PASS] EVS-06.ingredient  evs_get_concept  (0.174 s)
+  arguments: {"code": "C116377", "include": ["properties", "definitions", "synonyms"], "release": "26.10d"}
+  result: {"code": "C116377", "name": "Osimertinib", "terminology": "ncit", "release": "26.10d", "active": true, "conceptStatus": "DEFAULT", "leaf": true, "semanticTypes": ["Pharmacologic Substance"], "synonyms": [{"name": "Osimertinib", "termType": "DN", "source": "CTRP", "code": null, "subSource": null}, {"name": "OSIMERTINIB", "termType": "PT", "source": "FDA", "code": "3C06JJ0Z2O", "subSource": "UNII"}, ...
+
+[PASS] EVS-06.unii  evs_search_concepts  (0.173 s)
+  arguments: {"property": "FDA_UNII_Code", "value": "3C06JJ0Z2O", "limit": 5, "release": "26.10d"}
+  result: [{"concept": {"code": "C116377", "name": "Osimertinib", "terminology": "ncit", "release": "26.10d", "active": true, "conceptStatus": "DEFAULT", "leaf": true, "semanticTypes": [], "synonyms": null, "definitions": null, "properties": null, "parents": null, "children": null, "roles": null, "inverseRoles": null, "associations": null, "inverseAssociations": null, "disjointWith": null, "maps": null, "ma ...
+
+[PASS] EVS-06.class  evs_get_paths  (0.176 s)
+  arguments: {"code": "C116377", "release": "26.10d"}
+  result: [{"direction": "toRoot", "concepts": [{"code": "C116377", "name": "Osimertinib", "terminology": "ncit", "release": "26.10d", "leaf": true, "level": 0}, {"code": "C2167", "name": "Epidermal Growth Factor Receptor Tyrosine Kinase Inhibitor", "terminology": "ncit", "release": "26.10d", "leaf": false, "level": 1}, {"code": "C163952", "name": "EGFR-targeting Agent", "terminology": "ncit", "release": "2 ...
+
+==============================================================================
+EVS-07 Biomarker-to-gene, disease and agent relationships
+
+[PASS] EVS-07.variant  evs_search_concepts  (0.184 s)
+  arguments: {"term": "EGFR L858R", "limit": 5, "release": "26.10d"}
+  result: [{"concept": {"code": "C98515", "name": "EGFR NP_005219.2:p.L858R", "terminology": "ncit", "release": "26.10d", "active": true, "conceptStatus": "DEFAULT", "leaf": true, "semanticTypes": [], "synonyms": null, "definitions": null, "properties": null, "parents": null, "children": null, "roles": null, "inverseRoles": null, "associations": null, "inverseAssociations": null, "disjointWith": null, "maps ...
+
+[PASS] EVS-07.variant-gene  evs_get_relationships  (0.086 s)
+  arguments: {"code": "C98515", "kinds": ["roles"], "release": "26.10d"}
+  result: [{"kind": "role", "type": "Gene_Product_Sequence_Variation_Encoded_By_Gene_Mutant", "code": "C98357", "name": "EGFR Gene Mutation", "direction": "outgoing", "polarity": "positive", "qualifiers": null, "leaf": null}, {"kind": "role", "type": "Molecular_Abnormality_Involves_Gene", "code": "C17757", "name": "EGFR Gene", "direction": "outgoing", "polarity": "positive", "qualifiers": null, "leaf": null ...
+
+[PASS] EVS-07.agents  evs_find_concepts  (0.099 s)
+  arguments: {"criteria": [{"kind": "association", "name": "Has_Target", "targetCode": "C98515"}], "limit": 100, "release": "26.10d"}
+  result: {"concepts": [{"code": "C116377", "name": "Osimertinib", "terminology": null, "release": "26.10d", "leaf": null, "level": null}, {"code": "C132023", "name": "Olafertinib", "terminology": null, "release": "26.10d", "leaf": null, "level": null}, {"code": "C148147", "name": "Lazertinib", "terminology": null, "release": "26.10d", "leaf": null, "level": null}, {"code": "C153173", "name": "EGFR Mutant-s ...
+
+[PASS] EVS-07.gene  evs_get_concept  (0.179 s)
+  arguments: {"code": "C17757", "include": ["properties", "definitions"], "release": "26.10d"}
+  result: {"code": "C17757", "name": "EGFR Gene", "terminology": "ncit", "release": "26.10d", "active": true, "conceptStatus": "DEFAULT", "leaf": false, "semanticTypes": ["Gene or Genome"], "synonyms": null, "definitions": [{"definition": "This gene is involved in the epidermal growth factor signal transduction pathway.", "source": "NCI"}], "properties": [{"type": "Contributing_Source", "value": "CTRP", "so ...
+
+[PASS] EVS-07.mutation-diseases  evs_get_relationships  (0.125 s)
+  arguments: {"code": "C98357", "kinds": ["inverseRoles"], "names": ["Disease_Has_Molecular_Abnormality"], "release": "26.10d"}
+  result: [{"kind": "inverseRole", "type": "Disease_Has_Molecular_Abnormality", "code": "C185369", "name": "Diffuse Midline Glioma, EGFR-Mutant", "direction": "incoming", "polarity": "positive", "qualifiers": null, "leaf": null}, {"kind": "inverseRole", "type": "Disease_Has_Molecular_Abnormality", "code": "C227199", "name": "Lung Non-Small Cell Carcinoma with EGFR Mutation", "direction": "incoming", "polari ...
+
+[PASS] EVS-07.disease-path  evs_get_paths  (0.299 s)
+  arguments: {"code": "C227199", "release": "26.10d"}
+  result: [{"direction": "toRoot", "concepts": [{"code": "C227199", "name": "Lung Non-Small Cell Carcinoma with EGFR Mutation", "terminology": "ncit", "release": "26.10d", "leaf": true, "level": 0}, {"code": "C202131", "name": "EGFR-Positive Lung Non-Small Cell Carcinoma", "terminology": "ncit", "release": "26.10d", "leaf": false, "level": 1}, {"code": "C227212", "name": "Lung Non-Small Cell Carcinoma with  ...
+
+==============================================================================
+EVS-08 Adverse-event terminology and CTCAE grade definitions
+
+[PASS] EVS-08.v5-search  evs_search_concepts  (0.192 s)
+  arguments: {"terminology": "ctcae5", "term": "Nausea", "limit": 5, "release": "5.0"}
+  result: [{"concept": {"code": "C146764", "name": "Nausea", "terminology": "ctcae5", "release": "5.0", "active": true, "conceptStatus": "DEFAULT", "leaf": false, "semanticTypes": [], "synonyms": null, "definitions": null, "properties": null, "parents": null, "children": null, "roles": null, "inverseRoles": null, "associations": null, "inverseAssociations": null, "disjointWith": null, "maps": null, "mapsWit ...
+
+[PASS] EVS-08.v5-term  evs_get_concept  (0.198 s)
+  arguments: {"terminology": "ctcae5", "code": "C146764", "include": ["definitions", "properties"], "release": "5.0"}
+  result: {"code": "C146764", "name": "Nausea", "terminology": "ctcae5", "release": "5.0", "active": true, "conceptStatus": "DEFAULT", "leaf": false, "semanticTypes": [], "synonyms": null, "definitions": [{"definition": "A disorder characterized by a queasy sensation and/or the urge to vomit.", "source": "NCI"}, {"definition": "A disorder characterized by a queasy sensation and/or the urge to vomit.", "sour ...
+
+[PASS] EVS-08.v5-grades  evs_get_hierarchy_neighbors  (0.093 s)
+  arguments: {"terminology": "ctcae5", "direction": "children", "code": "C146764", "release": "5.0"}
+  result: [{"kind": "child", "type": null, "code": "C57213", "name": "Grade 1 Nausea", "direction": "outgoing", "polarity": "positive", "qualifiers": null, "leaf": true}, {"kind": "child", "type": null, "code": "C57336", "name": "Grade 2 Nausea", "direction": "outgoing", "polarity": "positive", "qualifiers": null, "leaf": true}, {"kind": "child", "type": null, "code": "C57467", "name": "Grade 3 Nausea", "di ...
+
+[PASS] EVS-08.v5-grade3  evs_get_concept  (0.17 s)
+  arguments: {"terminology": "ctcae5", "code": "C57467", "include": ["definitions"], "release": "5.0"}
+  result: {"code": "C57467", "name": "Grade 3 Nausea", "terminology": "ctcae5", "release": "5.0", "active": true, "conceptStatus": "DEFAULT", "leaf": true, "semanticTypes": [], "synonyms": null, "definitions": [{"definition": "Inadequate oral caloric or fluid intake; tube feeding, TPN, or hospitalization indicated", "source": "NCI"}, {"definition": "Inadequate oral caloric or fluid intake; tube feeding, TPN ...
+
+[PASS] EVS-08.v5-paths  evs_get_paths  (0.105 s)
+  arguments: {"terminology": "ctcae5", "code": "C146764", "release": "5.0"}
+  result: [{"direction": "toRoot", "concepts": [{"code": "C146764", "name": "Nausea", "terminology": "ctcae5", "release": "5.0", "leaf": false, "level": 0}, {"code": "C146630", "name": "Gastrointestinal Disorders", "terminology": "ctcae5", "release": "5.0", "leaf": false, "level": 1}, {"code": "C143163", "name": "Adverse Event by System Organ Class", "terminology": "ctcae5", "release": "5.0", "leaf": false, ...
+
+[PASS] EVS-08.v6-search  evs_search_concepts  (0.183 s)
+  arguments: {"terminology": "ctcae6", "term": "Nausea", "limit": 5, "release": "6.0"}
+  result: [{"concept": {"code": "C220681", "name": "Nausea", "terminology": "ctcae6", "release": "6.0", "active": true, "conceptStatus": "DEFAULT", "leaf": false, "semanticTypes": [], "synonyms": null, "definitions": null, "properties": null, "parents": null, "children": null, "roles": null, "inverseRoles": null, "associations": null, "inverseAssociations": null, "disjointWith": null, "maps": null, "mapsWit ...
+
+[PASS] EVS-08.v6-grades  evs_get_hierarchy_neighbors  (0.089 s)
+  arguments: {"terminology": "ctcae6", "direction": "children", "code": "C220681", "release": "6.0"}
+  result: [{"kind": "child", "type": null, "code": "C220716", "name": "Grade 1 Nausea", "direction": "outgoing", "polarity": "positive", "qualifiers": null, "leaf": true}, {"kind": "child", "type": null, "code": "C220717", "name": "Grade 2 Nausea", "direction": "outgoing", "polarity": "positive", "qualifiers": null, "leaf": true}, {"kind": "child", "type": null, "code": "C220718", "name": "Grade 3 Nausea",  ...
+
+[PASS] EVS-08.lay-term  evs_lookup_concept  (0.194 s)
+  arguments: {"identifier": "vomiting", "release": "26.10d"}
+  result: [{"concept": {"code": "C3442", "name": "Vomiting", "terminology": "ncit", "release": "26.10d", "active": true, "conceptStatus": "DEFAULT", "leaf": false, "semanticTypes": ["Finding"], "synonyms": [{"name": "Vomiting", "termType": "PT", "source": "ACC/AHA", "code": "VAR", "subSource": "SARS2"}, {"name": "Vomiting", "termType": "PT", "source": "CTCAE", "code": "E11068", "subSource": null}, {"name":  ...
+
+[PASS] EVS-08.lay-phrase  evs_lookup_concept  (0.178 s)
+  arguments: {"identifier": "throwing up", "release": "26.10d"}
+  note: Exact lookup does not guess: a phrase that is not an NCIt name or synonym returns nothing rather than a near match.
+  result: []
+
+==============================================================================
+EVS-09 Term dictionary for text mining
+
+[PASS] EVS-09.root  evs_search_concepts  (0.174 s)
+  arguments: {"term": "Lung Carcinoma", "type": "match", "limit": 5, "release": "26.10d"}
+  result: [{"concept": {"code": "C4878", "name": "Lung Carcinoma", "terminology": "ncit", "release": "26.10d", "active": true, "conceptStatus": "DEFAULT", "leaf": false, "semanticTypes": [], "synonyms": null, "definitions": null, "properties": null, "parents": null, "children": null, "roles": null, "inverseRoles": null, "associations": null, "inverseAssociations": null, "disjointWith": null, "maps": null, " ...
+
+[PASS] EVS-09.branch  evs_get_descendants  (0.143 s)
+  arguments: {"code": "C4878", "maxLevel": 2, "limit": 500, "release": "26.10d"}
+  result: [{"code": "C153203", "name": "Advanced Lung Carcinoma", "terminology": null, "release": "26.10d", "leaf": false, "level": 2}, {"code": "C27925", "name": "Asbestos-Related Lung Carcinoma", "terminology": null, "release": "26.10d", "leaf": true, "level": 1}, {"code": "C35875", "name": "Bronchogenic Carcinoma", "terminology": null, "release": "26.10d", "leaf": false, "level": 1}, {"code": "C209738",  ...
+
+[PASS] EVS-09.terms  evs_get_concepts  (0.354 s)
+  arguments: {"include": ["synonyms"], "release": "26.10d", "codes": ["C4878", "C153203", "C27925", "C35875", "C209738", "C118814", "C118815", "C7591", "C7267", "C9137", "C205303", "C162570", "C153206", "C213321", "C5666", "C9133", "C210711", "C45507", "C90519", "C91232", "C136467", "C222364", "C226343", "C45545", "C7454", "C183116", "C136713", "C4450", "C5672", "C45519", "C45544", "C142830", "C45569", "C136714", "C136491", "C227212", "C223188", "C2926", "C133254", "C135017", "C223193", "C45540", "C188068", "C136496", "C4917", "C136494", "C136719", "C45504", "C3493", "C209751", "C36305", "C224699", "C133503", "C214848", "C36306", "C153202", "C192797", "C156094", "C156092", "C136468", "C222365", "C5641", "C9038", "C6683", "C6686", "C187195", "C180923", "C8953", "C7783", "C9050", "C5014", "C141076", "C153081", "C150581", "C173331", "C190952", "C165767", "C190953", "C27467", "C136469", "C222366", "C8772", "C88888", "C136470", "C222367", "C8954", "C88889", "C136475", "C222372", "C8773", "C88890", "C136478", "C222375", "C8774", "C88891", "C136482", "C222379", "C7779", "C27637", "C155902", "C192018", "C155901"]}
+  result: {"concepts": [{"code": "C4878", "name": "Lung Carcinoma", "terminology": "ncit", "release": "26.10d", "active": true, "conceptStatus": "DEFAULT", "leaf": false, "semanticTypes": [], "synonyms": [{"name": "Lung Carcinoma", "termType": "PT", "source": "Cellosaurus", "code": null, "subSource": null}, {"name": "Lung Cancer", "termType": "SY", "source": "CPTAC", "code": null, "subSource": null}, {"name ...
+
+[PASS] EVS-09.subtree  evs_get_subtree  (0.368 s)
+  arguments: {"code": "C4878", "depth": 2, "criteria": [{"kind": "semanticType", "value": "Neoplastic Process"}], "release": "26.10d"}
+  result: {"root": {"code": "C4878", "name": "Lung Carcinoma", "depth": 0, "leaf": false, "matches": true, "expanded": true, "children": [{"code": "C27925", "name": "Asbestos-Related Lung Carcinoma", "depth": 1, "leaf": true, "matches": true, "expanded": true, "children": []}, {"code": "C35875", "name": "Bronchogenic Carcinoma", "depth": 1, "leaf": false, "matches": true, "expanded": true, "children": [{"co ...
+
+SUMMARY: KNOWN_ISSUE=2, PASS=52
+Results: docs/evaluation/use-case-results.md and use-case-results.json

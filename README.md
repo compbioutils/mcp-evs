@@ -245,6 +245,7 @@ pytest                      # unit + contract + conformance + acceptance (fixtur
 ECM_LIVE=1 pytest -m live   # live smoke + acceptance scenarios against the live upstreams
 python scripts/run_acceptance.py [--live]   # all tiers -> reports/<stamp>/{summary.md,junit-*.xml,benchmark.md}
 python scripts/evaluate_retrieval.py --retriever upstream_contains --mode live   # SOW-D5 scorer (pre-index baseline)
+python scripts/run_use_cases.py             # the 9 EVS use cases in docs/, live -> docs/evaluation/use-case-results.*
 python scripts/generate_tool_reference.py   # docs/tool-reference.md from the registered tools
 python scripts/record_fixtures.py          # refresh tests/fixtures/evs from the live API
 python scripts/record_fixtures.py --cadsr  # refresh tests/fixtures/cadsr (slow; no credentials needed)
@@ -256,6 +257,9 @@ CI (`.github/workflows/ci.yml`) runs `ruff check` and the offline tests on Pytho
 match `pyproject.toml`. One contract test is marked `xfail(strict=True)` for a known open
 issue (what to return for an absent code with replacement history); CI fails when it starts
 passing, so the marker gets removed.
+
+The latest evaluation of the server (all test tiers, live tests, the EVS use cases, benchmark,
+retrieval baseline and findings) is in [docs/evaluation/EVALUATION.md](docs/evaluation/EVALUATION.md).
 
 The fixtures currently in `tests/fixtures/evs` and `tests/fixtures/cadsr` are **hand-authored from the documented
 EVS payload shapes** (`graph_small.json` is a synthetic graph used by the traversal and
