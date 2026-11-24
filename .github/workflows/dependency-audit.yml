@@ -1,0 +1,28 @@
+# Fails when a locked dependency has a published vulnerability (OSV / PyPI advisory database).
+# Regenerate deploy/requirements.lock after any dependency change (see deploy/Dockerfile).
+# No advisories are ignored. If one must be, add --ignore-vuln <id> with a review in SECURITY.md.
+name: Dependency audit
+
+on:
+  push:
+  pull_request:
+  schedule:
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  pip-audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install pip-audit
+        run: python3 -m pip install --user "pip-audit==2.10.1"
+      - name: Audit the locked runtime dependencies
+        run: |
+          python3 -m pip_audit -r deploy/requirements.lock --require-hashes --disable-pip --strict

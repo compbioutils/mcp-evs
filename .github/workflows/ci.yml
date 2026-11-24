@@ -1,0 +1,54 @@
+# Lint and offline tests on every push and pull request. Live tests (EVS, caDSR stage) are
+# not run here: they need network access and credentials (`pytest -m live`, see README).
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12"]  # 3.12 is the container image's version
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2  # v10.3.3
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install from the lock file
+        run: uv sync --frozen --extra dev
+      - name: Lint
+        run: uv run --no-sync ruff check .
+      - name: Offline tests
+        env:
+          ECM_LIVE: ""
+        run: uv run --no-sync pytest -m "not live" -p no:cacheprovider -q
+
+  lock-in-sync:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@68559e99cc807c1eb7e9238fd43a15bba460eec2  # v10.3.3
+      - name: uv.lock matches pyproject.toml
+        run: uv lock --check
+      - name: deploy/requirements.lock matches uv.lock
+        run: |
+          uv export --frozen --no-emit-project --extra redis --format requirements-txt -o /tmp/requirements.lock
+          diff <(grep -v '^#' deploy/requirements.lock) <(grep -v '^#' /tmp/requirements.lock)
