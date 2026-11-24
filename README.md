@@ -3,13 +3,9 @@
 <!-- mcp-name: io.github.compbioutils/evs-cadsr-mcp -->
 
 An MCP server over NCI EVS (NCI Thesaurus) and caDSR, built with
-[FastMCP](https://github.com/jlowin/fastmcp) and hosted in FastAPI. It implements all three
-increments of [`docs/evs-cadsr-mcp-proposal.md`](docs/evs-cadsr-mcp-proposal.md) except the
-local NCIt retrieval index: the shared `core` platform (envelopes, release resolver, cache,
-resilient HTTP client, budgets, cursors), twenty-one read-only `evs_*` tools over the live
-EVS REST API, sixteen `cadsr_*` tools over the caDSR II APIs, and eleven `map_*` tools that
-compose the two for the primary use case, mapping between CDE content and NCIt concepts
-starting with the GDC data dictionary (Phases 0–2, 4 and 5 of the delivery plan).
+[FastMCP](https://github.com/jlowin/fastmcp) and hosted in FastAPI. 
+It interacts with the EVS Explore REST API (see https://evsexplore.semantics.cancer.gov/evsexplore/evsapi)
+and caDSR II API (see https://cadsr.cancer.gov/onedata/Home.jsp)
 
 **New here?** [QUICKSTART.md](QUICKSTART.md) gets you from clone to asking NCIt questions in
 VS Code, Claude Code or Claude Desktop in about five minutes.
