@@ -40,9 +40,15 @@ secretGroup = 1
 keywords = ["ecm_cache_url"]
 
 [allowlist]
-description = "Third-party and generated files"
+description = "Third-party and generated files, and GitHub advisory IDs"
 paths = [
     '''(^|/)\.venv/''',
     '''(^|/)__pycache__/''',
     '''(^|/)\.ruff_cache/''',
+]
+# GitHub Security Advisory IDs (GHSA-xxxx-xxxx-xxxx, cited in SECURITY.md) trip generic-api-key.
+# Anchored on the whole secret, so a real key that merely sits next to an ID still fails.
+regexTarget = "secret"
+regexes = [
+    '''^GHSA(?:-[23456789cfghjmpqrvwx]{4}){3}$''',
 ]
