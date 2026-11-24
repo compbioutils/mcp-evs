@@ -1,4 +1,4 @@
-# User and developer guide (SOW D9)
+# User and developer guide
 
 This guide is for people who connect an agent to `evs-cadsr-mcp`, write prompts against it,
 or extend it. For a plain-language guide to each tool with simple examples, start with

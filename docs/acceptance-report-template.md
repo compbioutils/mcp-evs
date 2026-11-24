@@ -67,6 +67,6 @@ list anything new found during acceptance.
 
 | role | name | date | decision |
 |---|---|---|---|
-| NCI EVS lead | | | accept / accept with conditions / reject |
-| NCI caDSR lead (unified) | | | |
-| contractor | | | |
+|  | | | accept / accept with conditions / reject |
+|   | | | |
+|  | | | |

@@ -1,12 +1,16 @@
-# Evaluation of the evs-cadsr-mcp server
+# Evaluation of the `evs-cadsr-mcp` server
 
 **Date:** 23 November 2026 (runs between 01:23 and 01:30 UTC on 24 November)
 **Subject:** `evs-cadsr-mcp` 0.1.0, commit `3cda201` (server source unchanged by this evaluation)
 **Upstreams:** live NCI EVS REST API (NCIt 26.10d); caDSR **stage** for the caDSR live tests
 
+This document is at `docs/evaluation/EVALUATION.md`
+
 This report brings together every check run on the server, so it can be submitted as
 evidence of completion. It follows the [acceptance report template](../acceptance-report-template.md).
 All raw results are in this directory (see [Evidence](#evidence)).
+
+
 
 ## Summary
 
@@ -27,6 +31,8 @@ that reports truncation, and the MedDRA license gate. The evaluation found **six
 four new and two already known. None stops a scenario from reaching its goal. They are
 listed under [Findings](#findings) with the evidence and a suggested fix for each.
 
+
+
 ## Identification
 
 | Item | Value |
@@ -40,6 +46,8 @@ listed under [Findings](#findings) with the evidence and a suggested fix for eac
 | Transport | stdio (use cases); in-process FastMCP client (test suite) |
 | Environment | macOS, Python 3.12.13, uv lock file; no license key (to exercise the gate); caDSR stage over NIH VPN |
 | Fixtures | Hand-authored from documented EVS and caDSR payload shapes (see README "Tests") |
+
+
 
 ## Method
 
@@ -59,6 +67,8 @@ checks content, not just success. Its own logic has offline tests in
 `tests/unit/test_use_cases.py`. These include a test that every documented step is a valid call
 to this server, so the document can't drift from the tool schemas unnoticed.
 
+
+
 ## Results by tier
 
 | Tier | Tests | Failures | Errors | Skipped | Notes |
@@ -74,6 +84,8 @@ to this server, so the document can't drift from the tool schemas unnoticed.
 The live tiers ran with a writable ICD-O cache (`ECM_ICDO_CACHE_DIR`). A first live run used
 the default cache, which the evaluation sandbox doesn't allow writing to. One test then
 failed with `internal_error` (finding F5), and passed once the cache was writable.
+
+
 
 ## SOW capability sign-off
 
@@ -92,6 +104,8 @@ failed with `internal_error` (finding F5), and passed once the cache was writabl
 | Unified UC-1 / UC-3 | `test_uc1_cde_to_ncit_and_enum_alignment` | Pass |
 | Unified UC-4 / UC-9 | `test_uc4_concept_to_cdes_and_uc9_icdo`; EVS-03 `icdo-mapping-file` | Pass (with a writable cache; F5) |
 | Release impact | EVS-05 `impact` | Works; finding F2 |
+
+
 
 ## EVS use cases
 
@@ -114,6 +128,8 @@ Nine scenarios from [the use cases](../evs%20mcp%20use%20cases.md). Full results
 `PASS*`: every step passed except a documented known issue. The use cases exercised 20 tools:
 18 of the 21 `evs_*` tools, plus `map_map_icdo_to_ncit` and `map_assess_release_impact`.
 
+
+
 ## Performance
 
 **Live (use-case run, stdio, NCIt 26.10d):** 54 calls; 58 upstream requests; p50 0.18 s,
@@ -125,6 +141,8 @@ Every call met the live SLOs (single concept < 3 s, bounded traversal < 10 s).
 **Benchmark (fixtures, 3 repeats):** [benchmark.md](test-results/benchmark.md). Warm-cache calls
 make no outbound request; cold calls make the expected number (1 per concept, 3 for a depth-2
 traversal). Latencies against fixtures are 0–8 ms and measure the server's own overhead only.
+
+
 
 ## Retrieval evaluation
 
@@ -140,6 +158,8 @@ Concept names, drugs and findings score 1.0. Definition-style and CDE-derived ph
 0–0.17: that's what the planned semantic index is for. ICD-O codes score 0 through free-text
 search by design. The server answers them with `evs_find_concepts` (ICD-O property) and
 `map_map_icdo_to_ncit`, which both pass in EVS-03.
+
+
 
 ## Security and supply chain
 
@@ -157,6 +177,8 @@ search by design. The server answers them with `evs_find_concepts` (ICD-O proper
 - **Startup checks** (HTTP off loopback needs auth; JWT needs issuer and audience;
   Databricks mode needs the app's service principal) are covered by `tests/contract/test_platform.py`.
 
+
+
 ## Findings
 
 | # | Severity | Finding | Evidence | Suggested fix |
@@ -173,6 +195,8 @@ Observations that aren't defects: the brand name *Tagrisso* is a synonym of the 
 (the codes are on site-specific concepts such as C3510); and concept maps cite ICD-10-CM 2017
 while the `NCIt_Maps_To_ICD10CM` mapset cites 2026.
 
+
+
 ## Limitations of this evaluation
 
 - Live EVS content changes monthly. Expectations check stable codes and relationships, not
@@ -188,6 +212,8 @@ while the `NCIt_Maps_To_ICD10CM` mapset cites 2026.
 - The test fixtures are hand-authored from documented payload shapes, not recorded responses.
   The live tiers and use cases cover that gap for the paths they exercise.
 
+
+
 ## Reproduce
 
 ```bash
@@ -198,6 +224,8 @@ uv run --no-sync python scripts/run_live_tests.py --junitxml docs/evaluation/tes
 uv run --no-sync python scripts/run_use_cases.py > docs/evaluation/use-case-transcript.txt
 uv run --no-sync python scripts/evaluate_retrieval.py --retriever upstream_contains --mode live --out docs/evaluation/retrieval-upstream-contains.json
 ```
+
+
 
 ## Evidence
 
@@ -211,10 +239,3 @@ uv run --no-sync python scripts/evaluate_retrieval.py --retriever upstream_conta
 | [test-results/benchmark.md](test-results/benchmark.md) | Fixture benchmark |
 | [retrieval-upstream-contains.md](retrieval-upstream-contains.md) and `.json` | Retrieval baseline with per-category scores and misses |
 
-## Decision
-
-| Role | Name | Date | Decision |
-| --- | --- | --- | --- |
-| NCI EVS lead | | | accept / accept with conditions / reject |
-| NCI caDSR lead (unified) | | | |
-| Contractor | | | |
