@@ -81,7 +81,7 @@ def create_app(settings: Settings | None = None, *, services: Services | None = 
     mcp, services = build_mcp_server(settings, services=services)
     # The MCP endpoint path is set on the sub-app; mounting at "/" after the admin routes
     # keeps /healthz and /readyz on FastAPI and serves MCP at settings.mcp_path (default /mcp).
-    mcp_asgi = mcp.http_app(path=settings.mcp_path)
+    mcp_asgi = mcp.http_app(path=settings.mcp_path, stateless_http=settings.http_stateless)
 
     @asynccontextmanager
     async def lifespan(app: FastAPI):
@@ -129,14 +129,19 @@ def create_app(settings: Settings | None = None, *, services: Services | None = 
             response.status_code = 503
             return {"status": "not_ready", "reason": type(exc).__name__}
         cache_ok = await services.cache.ready()
-        if not cache_ok:
+        # In a Databricks App, readiness also means the workspace issues the app's service principal a token.
+        sp_ok = await services.databricks.ready() if services.databricks is not None else None
+        ready = cache_ok and sp_ok is not False
+        if not ready:
             response.status_code = 503
         METRICS.gauge("ecm_active_release_info", 1, {"terminology": settings.default_terminology, "release": active.version})
         summary = {
-            "status": "ready" if cache_ok else "not_ready",
+            "status": "ready" if ready else "not_ready",
             "sharedCache": "ok" if cache_ok else "unreachable",
             "activeRelease": active.version,
         }
+        if sp_ok is not None:
+            summary["servicePrincipal"] = "ok" if sp_ok else "unavailable"
         if not admin_allowed(request):
             return summary
         return {
@@ -150,6 +155,7 @@ def create_app(settings: Settings | None = None, *, services: Services | None = 
                       "aiMatch": services.ai_http is not None},
             "cache": services.cache.stats(),
             "icdoMappings": services.map.icdo_map.status() if services.map is not None else None,
+            "databricksApp": settings.databricks_app_name if settings.auth_mode == "databricks" else None,
         }
 
     if settings.metrics_enabled:
